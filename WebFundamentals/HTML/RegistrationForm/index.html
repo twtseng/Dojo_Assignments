@@ -1,0 +1,64 @@
+<html>
+    <body>
+        <h1>My Registration Form</h1>
+        <form>
+            <table>
+                <tr>
+                    <td><label for="fname">First Name:</label></td>
+                    <td><input type="text" id="fname" name ="fname"></td>
+                </tr>
+                <tr>
+                    <td><label for="lname">Last Name:</label></td>
+                    <td><input type="text" id="lname" name ="lname"></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td><input type="text" id="email" name ="email"></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Password:</label></td>
+                    <td><input type="password" id="password" name ="password"></td>
+                </tr>
+                <tr>
+                    <td><label for="passwordConfirm">Password:</label></td>
+                    <td><input type="password" id="passwordConfirm" name ="passwordConfirm"></td>
+                </tr>
+                <tr>
+                    <td><label for="birthday">Birthday:</label></td>
+                    <td><input type="date" id="birthday" name ="birthday"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">Male</label><br>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label><br>
+                        <input type="radio" id="other" name="gender" value="other">
+                        <label for="other">Other</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label for="desc">A short description of yourself</label><br>
+                        <textarea id="desc" name="desc" rows="4" cols="50"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label for="favlang">Favorite language</label>
+                        <select id="favlang" name="favlang">
+                            <option value="Javascript">Javascript</option>
+                            <option value="C#">C#</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Submit"> 
+                    </td>
+                </tr>
+            </table>
+
+        </form>
+    </body>
+</html>
