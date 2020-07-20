@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fake Blog</title>
+        <style>
+            * {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            tr:nth-child(even) {background-color: #f2f2f2;}
+            #mytable th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Tom Tseng</h1>
+        <img src="./HighDive.jpg" width="300" height="200">
+        <p>
+            Here are a bunch of angry people singing angrily.
+        </p>
+        <table id="mytable">
+            <tr>
+                <th>Band</th>
+                <th>Song</th>
+                <th>Length</th>
+            </tr>
+            <tr><td>AC/DC</td><td>Back in Black</td><td>3:35</td></tr>
+            <tr><td>Blondie</td><td>Call me</td><td>3:06</td></tr>
+            <tr><td>Cars</td><td>Just what I needed</td><td>3:20</td></tr>
+            <tr><td>Foreigner</td><td>Juke box hero</td><td>4:04</td></tr>
+            <tr><td>ZZ Top</td><td>Lagrange</td><td>4:15</td></tr>
+        </table>
+        <ul>
+            <li>Always try your best</li>
+            <li>Don't take anything personally</li>
+            <li>Be impeccable with your word</li>
+        </ul>
+        <a href="https://www.youtube.com/watch?v=xE383evpvXM" >Click here for a funny video</a>
+        <form>
+            <p>
+                <h1>Please take this short survey</h1>
+                <label for="email">Email:</label>
+                <input type="text" name="email">
+            </p>
+            <p>
+                <input type="radio" name="yes" >
+                <label for="yes">Yes, send me lots of emails</label>
+                <input type="radio" name="no" >
+                <label for="no">No, don't send me lots of emails</label>
+            </p>
+            <p>
+                <h2>How did you hear about us?</h2>
+                <input type="checkbox" name="facebook" >
+                <label for="facebook">Facebook</label>
+                <input type="checkbox" name="Newspaper" >
+                <label for="Newspaper">Newspaper</label>
+                <input type="checkbox" name="Referral" >
+                <label for="Referral">Referral</label>
+            </p>
+            <input type="submit" value="Submit my info" >
+        </form>
+    </body>
+</html>
