@@ -2,6 +2,18 @@
     font-family: Arial, Helvetica, sans-serif;
     color: white;
 }
+.center-box {
+    background-color: blue;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.center-item {
+    background-color: yellow;
+    height: 100px;
+    width: 100px;
+}
 .menubar {
     display: flex;
     background-color: lightseagreen;
