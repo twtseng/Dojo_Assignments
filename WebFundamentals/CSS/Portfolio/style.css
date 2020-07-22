@@ -1,0 +1,92 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+#headerBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F5F5F5;
+    padding: 20px;
+}
+#name {
+    font-family: cursive;
+    font-weight: bolder;
+    font-size: xx-large;
+}
+#tagline {
+    font-size: x-large;
+    font-weight: bolder;  
+}
+#mainBody {
+    padding: 20px;
+    background-image: linear-gradient(to right, maroon, purple, maroon);
+}
+.contentRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+#photoOfMe {
+    width: 30%;
+    border: 10px solid lightgray;
+    margin-right: 20px;
+}
+.infoBox {
+    background-color: lightgrey;
+}
+.col3 {
+    width: 32%;
+}
+.titleBar {
+    background-image: linear-gradient(darkgray,black,darkgray);
+    color: white;
+    font-size: x-large;
+    font-weight: bolder;
+    padding: 10px;
+}
+.infoText {
+    padding:10px;
+}
+img {
+    max-width: 100%;
+}
+.technologyIcons {
+    display: flex;
+    flex-wrap: wrap;
+}
+.technologyIcon {
+    max-width: 15%;
+    margin: 2%;
+}
+.techLinkDiv {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.techLink {
+    padding: 10px;
+    background-color: green;
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+    box-shadow: 5px 5px 3px darkgrey;
+    border-radius: 5px;
+}
+.footerBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.socialMediaLinks {
+    display: flex;
+    width: 40%;
+}
+.socialMedia {
+    display: flex;
+    align-items: center;
+}
+.socialIcon {
+    max-width: 15%;
+    margin: 2%;
+}
