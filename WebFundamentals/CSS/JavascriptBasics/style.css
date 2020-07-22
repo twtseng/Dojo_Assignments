@@ -1,0 +1,52 @@
+body {
+    background-color: darkblue;
+    color: white;
+    width: 970px;
+}
+.topBar {
+    background-color: red;
+    padding: 1%;
+    border-radius: 20px;
+    margin-bottom: 1%;
+}
+.mainBody {
+    display: flex;
+    margin-bottom: 1%;
+    align-items: flex-start;
+}
+.leftMenu {
+    background-color: cadetblue;
+    border-radius: 20px;
+    padding: 10px;
+    margin-right: 1%;
+    width: 300px;
+}
+.mainText {
+    width: 670px;
+}
+.leftMenu ul {
+    list-style-position: inside;
+}
+.home {
+    list-style-type: none;
+}
+.level1 {
+    list-style-type: disc;
+}
+.level2 {
+    list-style-type: circle;
+    padding-left: 20px;
+}
+.mainText {
+    background-color: black;
+    border-radius: 20px;
+    padding: 1%;  
+}
+.bottomBar {
+    background-color:gray;
+    border-radius: 20px;
+    padding: 1%;  
+}
+a {
+    color: cyan;
+}
