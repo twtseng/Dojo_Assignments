@@ -1,0 +1,111 @@
+* {
+    border:0;
+    margin:0;
+}
+
+#root {
+    width: 970px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#topSection {
+    background-color: #245177;
+    padding: 2%;
+    color: white;
+    display: flex;
+    flex-flow: column;
+}
+#headerSection{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+#headerSection img {
+    width: 40%;
+}
+#rightHeaderSection {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+}
+#textSize {
+    padding-right: 40px;
+}
+#textSize a {
+    color: yellow;
+}
+#searchArea {
+    margin: 10px;
+    padding: 20px 30px 20px 40px;
+    background-color: #444444;
+    border-radius: 10px;
+    box-shadow: 5px 5px black;
+}
+#searchArea input, #searchArea button {
+    height: 30px;
+    text-align: center;
+}
+#searchArea button {
+    border-radius: 7px;
+    background-color: #245177;
+    color: white;
+    border-top: solid white;
+    border-left: solid white;
+    border-bottom: solid gray;
+    border-right: solid gray;
+}
+#topMenubarSection {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #417CAD;
+    height: 50px;
+    border-radius: 10px;
+    margin-left: 60px;
+    margin-right: 30px;
+    margin-top: 30px;
+}
+#topMenubarSection a {
+    text-decoration: none;
+    color: white;
+    font-size: large;
+}
+#detailsSection {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+#detailsSectionLeft {
+    margin-top: 30px;
+}
+#detailsSectionLeft a {
+    color: white;
+}
+#detailsSectionLeft ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#detailsSectionLeft ul li {
+    margin: 5px;
+}
+#detailsSectionLeft ul li:before {
+    content: ">>";
+    color: yellow;
+    font-size: xx-small;
+    font-weight: bolder;
+    margin-right: 3px;
+}
+#detailsSectionRight {
+    text-align: center;
+    width: 650px;
+    margin-top: 30px;
+}
+.pythonZen {
+    margin: 10px;
+    font-size: x-large;
+}
+.pythonValues {
+    color: yellow;
+    font-style: italic;
+}
