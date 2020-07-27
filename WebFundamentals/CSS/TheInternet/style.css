@@ -1,0 +1,138 @@
+* {
+    margin:0;
+    padding:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.root {
+    margin: 5%;
+}
+.header {
+    display: flex;
+    flex-flow: column;
+}
+.mainBody {
+    display: flex;
+    flex-flow: row;
+}
+#titleBar1 {
+    display: flex;
+    align-items: center;
+    margin-bottom: -20px;
+}
+#titleBar1 img {
+    width: 70px;
+    z-index: 1;
+}
+.red {
+    color: red;
+}
+.blue {
+    color: blue;
+}
+#titleBar2 {
+    background-image: linear-gradient(blue, lightblue, blue);
+    color: white;
+    padding: 10px;
+}
+.leftColumn {
+    width: 20%;
+    display: flex;
+    flex-flow: column;
+    align-content: center;
+}
+.leftColumn * {
+    margin: 10px 0px 10px 0px;
+}
+#summary {
+    display: inline;
+}
+.linkButton {
+    padding: 10px 0px 10px 0px;
+    text-decoration: none;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+.reinventCareerBox {
+    color: white;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 30px;
+    background-image: url("images/ad_background.png");
+}
+.reinventCareerBox img {
+    width: 70%;
+}
+#watchVideoBtn {
+    background-image: linear-gradient(blue, darkblue);
+}
+#moreResourcesBtn {
+    background-image: linear-gradient(yellow, orange);
+}
+#learnMoreBtn {
+    background-image: linear-gradient(lightblue,blue, lightblue);
+}
+.rightColumn {
+    width: 80%;
+    margin-left: 40px;
+}
+.cyan {
+    color: cyan;
+}
+.blue {
+    color: blue;
+}
+.rightColumnHeader {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.rightColumnHeaderLeft {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+.rightColumnHeaderLeft img {
+    width: 30px;
+}
+.rightColumnHeaderRight {
+    display: flex;
+    align-items: center;
+}
+#phonePng {
+    width: 35px;
+    margin-right: 10px;
+}
+.rightColumnHeaderRightRight {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.tinyText {
+    font-size: x-small;
+}
+.bigText {
+    font-size: x-large;
+    font-weight: bold;
+}
+.rightColumnBody {
+    display: flex;
+    flex-flow: column;
+}
+.rightColumnBody * {
+    margin-top: 5px;
+}
+ul {
+    list-style-position: inside;
+    margin-left: 30px;
+}
+#client_server_jpg {
+    width: 200px;
+    padding-left: 50%;
+    padding-right: 50%;
+}
