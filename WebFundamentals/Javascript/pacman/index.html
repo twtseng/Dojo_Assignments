@@ -21,13 +21,15 @@
             display: inline-block;
         }
         div.brick {
-            background-color: blue;
+            background-color: teal;
+            width: 40px;
+            height: 40px;
         }
         div.coin {
             background-image: url('coin.png');
             background-position: center;
             background-repeat: no-repeat;
-            background-size: contain;
+            background-size: 10px 10px;
         }
         div#pacman {
             width: 50px;
@@ -48,6 +50,7 @@
     <div id="world">
     </div>
     <div id="pacman" style="top: 0px; "></div>
+    <div class="brick2"></div>
     <script>
         /* Features
 
@@ -55,21 +58,20 @@
         */
 
         var world = [
-            [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
-            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
-            [2,1,1,2,2,2,2,2,2,2,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
-            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
-            [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
+            [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+            [2,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,2],
+            [2,1,2,2,1,2,2,1,2,1,2,2,1,2,2,1,2],
+            [2,1,2,1,1,1,1,1,2,1,1,1,1,1,2,1,2],
+            [2,1,2,1,2,1,2,2,2,2,2,1,2,1,2,1,2],
+            [2,1,2,1,2,1,1,1,1,1,1,1,2,1,2,1,2],
+            [2,1,1,1,2,1,2,2,2,2,2,1,2,1,1,1,2],
+            [2,1,2,1,2,1,2,2,2,2,2,1,2,1,2,1,2],
+            [2,1,2,1,2,1,1,0,0,0,0,1,2,1,2,1,2],
+            [2,1,2,1,2,2,2,2,1,2,2,2,2,1,2,1,2],
+            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
+            [2,1,2,1,2,2,2,1,2,1,2,2,2,1,2,1,2],
+            [2,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,2],
+            [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
         ];
         var blockIdToName = {
             0 : "empty",
@@ -77,8 +79,8 @@
             2 : "brick"
         }
         var gameState = {
-            pacmanX : 100,
-            pacmanY : 100,
+            pacmanX : 400,
+            pacmanY : 500,
             pacmanDirection : 'right',
             pacmanLastDirection : 'right'
         }
@@ -120,6 +122,10 @@
         }
         function pacmanRelativeBlock(rowOffset, colOffset) {
             return world[pacmanWorldPos().row + rowOffset][pacmanWorldPos().col + colOffset];
+        }
+        function eatDot() {
+            world[pacmanWorldPos().row][pacmanWorldPos().col] = 0;
+          //  console.log(`row[${pacmanWorldPos().row}] col[${pacmanWorldPos().col}], world[${world[pacmanWorldPos().row][pacmanWorldPos().col]}]`);
         }
         function movePacman() {
             switch (gameState.pacmanLastDirection) {
@@ -184,8 +190,13 @@
                     document.getElementById("pacman").style.transform = "rotate(90deg)";
                     break;
             }
+            if (gameState.pacmanX % 50 == 0 && gameState.pacmanY % 50 == 0) {
+                eatDot();
+            }
+            displayWorld();
             document.getElementById("pacman").style.left = gameState.pacmanX+"px";
             document.getElementById("pacman").style.top = gameState.pacmanY+"px";
+            
         }
 
         setInterval(movePacman, 50);
