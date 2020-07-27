@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacman demo</title>
+    <style type="text/css">
+        * {
+            padding:0;
+            margin:0;
+        }
+        body {
+            background-color: black;
+        }
+        div.row {
+            display: flex;
+        }
+        div.row div {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+        }
+        div.brick {
+            background-color: blue;
+        }
+        div.coin {
+            background-image: url('coin.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        div#pacman {
+            width: 50px;
+            height: 50px;
+            background-image: url('pacman.gif');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            z-index: 3;
+            position: absolute;
+        }
+        div.empty {
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body>  
+    <div id="world">
+    </div>
+    <div id="pacman" style="top: 0px; "></div>
+    <script>
+        /* Features
+
+        1) DisplayWorld with bricks and coins
+        */
+
+        var world = [
+            [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
+            [2,1,1,2,2,2,2,2,2,2,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
+            [2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
+            [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
+        ];
+        var blockIdToName = {
+            0 : "empty",
+            1 : "coin",
+            2 : "brick"
+        }
+        var gameState = {
+            pacmanX : 100,
+            pacmanY : 100,
+            pacmanDirection : 'right',
+            pacmanLastDirection : 'right'
+        }
+
+        function displayWorld() {
+            var output='';
+            for(var i=0; i < world.length; ++i) {
+                output += "<div class='row'>"
+                for (var j=0; j < world[i].length; ++j) {
+                    output += `<div class="${blockIdToName[world[i][j]]}"></div>`;
+                }
+                output += "</div>"
+            }
+            document.getElementById("world").innerHTML=output;
+        }
+        displayWorld();
+        document.onkeydown = onKeyPress;
+        function onKeyPress(e) {
+            switch(e.keyCode) {
+                case 38: //up
+                    gameState.pacmanDirection = 'up';
+                    break;
+                case 39: //right
+                    gameState.pacmanDirection = 'right';
+                    break;
+                case 40: //down
+                    gameState.pacmanDirection = 'down';
+                    break;
+                case 37: //left
+                    gameState.pacmanDirection = 'left';
+                    break;
+            }
+            console.log(gameState.pacmanDirection);
+        }
+        function pacmanWorldPos() {
+            var row = Math.floor(gameState.pacmanY / 50);
+            var col = Math.floor(gameState.pacmanX / 50);
+            return { row: row, col: col };
+        }
+        function pacmanRelativeBlock(rowOffset, colOffset) {
+            return world[pacmanWorldPos().row + rowOffset][pacmanWorldPos().col + colOffset];
+        }
+        function movePacman() {
+            switch (gameState.pacmanLastDirection) {
+                case 'left':
+                case 'right':
+                    if (['up','down'].includes(gameState.pacmanDirection)) {
+                        if (gameState.pacmanX % 50 == 0) {
+                            gameState.pacmanLastDirection = gameState.pacmanDirection;
+                        }
+                    } else {
+                        gameState.pacmanLastDirection = gameState.pacmanDirection;
+                    }
+                    break;
+                case 'up':
+                case 'down':
+                    if (['left','right'].includes(gameState.pacmanDirection)) {
+                        if (gameState.pacmanY % 50 == 0){
+                            gameState.pacmanLastDirection = gameState.pacmanDirection;
+                        }
+                    } else {
+                        gameState.pacmanLastDirection = gameState.pacmanDirection;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            switch (gameState.pacmanLastDirection) {
+                case 'left':
+                    if (gameState.pacmanX > 0) {
+                        if (gameState.pacmanX % 50 == 0 && pacmanRelativeBlock(0,-1) == 2) {
+                            break;
+                        }
+                        gameState.pacmanX -= 10;
+                    }
+                    document.getElementById("pacman").style.transform = "rotate(180deg)";
+                    break;
+                case 'right':
+                    if (gameState.pacmanX < (world[0].length-1)*50) {
+                        if (gameState.pacmanX % 50 == 0 && pacmanRelativeBlock(0,1) == 2) {
+                            break;
+                        }
+                        gameState.pacmanX += 10;
+                    }
+                    document.getElementById("pacman").style.transform = "rotate(0deg)";
+                    break;
+                case 'up':
+                    if (gameState.pacmanY > 0) {
+                        if (gameState.pacmanY % 50 == 0 && pacmanRelativeBlock(-1,0) == 2) {
+                            break;
+                        }
+                        gameState.pacmanY -= 10;
+                    }
+                    document.getElementById("pacman").style.transform = "rotate(-90deg)";
+                    break;
+                case 'down':
+                    if (gameState.pacmanY < (world.length-1)*50) {
+                        if (gameState.pacmanY % 50 == 0 && pacmanRelativeBlock(1,0) == 2) {
+                            break;
+                        }
+                        gameState.pacmanY += 10;
+                    }
+                    document.getElementById("pacman").style.transform = "rotate(90deg)";
+                    break;
+            }
+            document.getElementById("pacman").style.left = gameState.pacmanX+"px";
+            document.getElementById("pacman").style.top = gameState.pacmanY+"px";
+        }
+
+        setInterval(movePacman, 50);
+    </script>
+</body>
+</html>
