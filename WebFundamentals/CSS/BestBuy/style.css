@@ -1,0 +1,77 @@
+* {
+    border: 0;
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.headerBar {
+    background-color: #0146BE;
+    display: flex;
+    align-items: stretch;
+    color: white;
+    padding: 20px 50px 0px 50px;
+}
+.headerBarLeft img {
+    width: 100px;
+    margin: 10px;
+}
+.headerBarRight {
+    flex: 1;
+    flex-direction: column;
+}
+.headerBarRightTop {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+.headerBarRightTopLinks {
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.headerBarRightTopLinks a {
+    color: white;
+    text-decoration: none;
+}
+.searchBar input {
+    width: 600px;
+    height: 30px;
+    border-radius: 4px;
+}
+.searchBar button {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+}
+.headerBarRightBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.headerBar2 {
+    background-color: #0146BE;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    font-weight: bold;
+    padding: 20px 50px 20px 50px;
+    border-top: 1px solid #4976e6;
+}
+.productsAndServices {
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.accountAndOrders {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+hr {
+    color: white;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
