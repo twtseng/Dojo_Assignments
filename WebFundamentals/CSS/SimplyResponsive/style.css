@@ -1,0 +1,36 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#topBar {
+    margin: 10px;
+    background-color: gray;
+}
+#middleBar {
+    margin: 10px;
+    background-color: lightgray;
+}
+#bottomBar {
+    margin: 10px;
+    background-color: yellow;  
+}
+.Desktop .Tablet .Phone  {
+    background-color: yellow;  
+}
+@media only screen and (max-width: 480px) {
+    .Desktop { visibility: hidden;}
+    .Tablet  { visibility: hidden;}
+    .Phone  { visibility: visible;}
+}
+
+@media only screen and (min-width: 481px) {
+    .Desktop { visibility: hidden;}
+    .Tablet  { visibility: visible;}
+    .Phone  { visibility: hidden;}
+}
+
+@media only screen and (min-width: 1024px) {
+    .Desktop { visibility: visible;}
+    .Tablet  { visibility: hidden;}
+    .Phone  { visibility: hidden;}
+}
