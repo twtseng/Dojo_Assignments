@@ -1,0 +1,87 @@
+/*CSS reset settings here*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#wrapper {
+    width: 90%;
+    height: 70%;
+    background-color: silver;
+    margin: 0px auto;
+    padding: 20px;
+    display: flex;
+    flex-flow: column;
+}
+
+#header {
+    min-height: 100px;
+    width: 100%;
+    background-color: green;
+    margin-bottom: 20px;
+}
+
+#main_section {
+    display: flex;
+}
+
+#navigation {
+    min-height: 300px;
+    width: 18%;
+    background-color: blue;
+    vertical-align: top;
+    margin-right: 2%;
+}
+
+#main_content {
+    min-height: 30%;
+    width: 76%;
+    background-color: red;
+    display: flex;
+    flex-flow: column;
+    padding: 2%
+}
+
+.subcontentblock {
+    margin-bottom: 2%;
+}
+
+.subcontents {
+    min-height: 200px;
+    min-width: 33%;
+    background-color: yellow;
+    display: inline-block;
+}
+
+#advertisement {
+    min-height: 120px;
+    width: 100%;
+    background-color: purple;
+}
+
+@media only screen and (max-width: 600px) {
+    .subcontents {
+        width: 100%;
+    }
+    #navigation {
+        display: none;
+    }
+
+}
+@media only screen and (min-width: 800px) {
+    .subcontents {
+        width: 45%;
+    }
+    #navigation {
+        display: none;
+    }
+}
+@media only screen and (min-width: 1000px) {
+    .subcontents {
+        width: 25%;
+    }
+    #navigation {
+        display: inline-block
+    }
+}
