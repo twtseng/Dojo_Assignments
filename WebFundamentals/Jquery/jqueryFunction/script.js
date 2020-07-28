@@ -60,4 +60,8 @@ $('#html').click(() => {
     var text = $('#textbox').val();
     $('#originalContent').html(text);
 });
+$('#queryTest').click(() => {
+    var text = $('#textbox').val();
+    $(text).addClass("aqua");
+});
 
