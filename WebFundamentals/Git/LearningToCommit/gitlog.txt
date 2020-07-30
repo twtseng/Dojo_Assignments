@@ -1,0 +1,8 @@
+50        0.125 git commit -m "restart3"
+  51        0.069 git status
+  52        0.113 git status
+  53        0.047 git add *
+  54        0.130 git commit -m "change from green to blue"
+  55       16.245 git log
+  56       51.314 git revert a3aa50e6b8e431f05ce8b7bf15ac660fb935b7aa
+  57        0.062 git status
