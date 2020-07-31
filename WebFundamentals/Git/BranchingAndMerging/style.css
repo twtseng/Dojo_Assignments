@@ -1,0 +1,10 @@
+.pictures {
+    background-color: black;
+    display: flex;
+    flex-flow: wrap;
+    width: 30%;
+}
+img {
+    margin: 5px;
+    width: 48%;
+}
