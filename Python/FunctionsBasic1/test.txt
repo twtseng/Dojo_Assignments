@@ -1,0 +1,1187 @@
+PowerShell 7.0.2
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+https://aka.ms/powershell
+Type 'help' to get help.
+
+   A new PowerShell stable release is available: v7.0.3
+   Upgrade now, or check out the release page at:
+     https://aka.ms/PowerShell-Release?tag=v7.0.3
+
+PS C:\Users\tomts> python -V
+Python 3.7.8
+PS C:\Users\tomts> .\zcodingdojo.ps1
+PS C:\Users\tomts\source\repos\CodingDojo> dir
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           7/31/2020 12:27 PM                Dojo_Assignments
+d----           7/24/2020  2:03 PM                Dojo_Exams
+d----           7/29/2020  9:32 AM                Practice
+
+PS C:\Users\tomts\source\repos\CodingDojo> cd .\Dojo_Assignments\
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments> dir
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           7/20/2020 10:54 AM                C#
+d----           7/20/2020 10:55 AM                MERN
+d----           7/30/2020 12:32 PM                Projects
+d----           7/20/2020 10:54 AM                Python
+d----           7/30/2020 11:45 AM                WebFundamentals
+-a---           7/31/2020 10:37 AM            564 .gitignore
+-a---           7/31/2020 10:38 AM             14 secret.txt
+-a---           7/31/2020 12:28 PM             95 secure.txt
+
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments> cd .\Python\
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> dir
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> mkdir my_environments
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  8:06 AM                my_environments
+
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> mkdir python
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  8:06 AM                python
+
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> mkdir python\fundamentals
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\python
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  8:06 AM                fundamentals
+
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> mkdir python\oop
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\python
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  8:06 AM                oop
+
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> mkdir flask
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  8:06 AM                flask
+
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> mkdir flask\flask_fundamentals
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\flask
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  8:07 AM                flask_fundamentals
+
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> mkdir flask\flask_mysql
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\flask
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  8:07 AM                flask_mysql
+
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> mkdir django
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  8:07 AM                django
+
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> mkdir django\django_intro
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\django
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  8:07 AM                django_intro
+
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> mkdir django\django_orm
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\django
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  8:07 AM                django_orm
+
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> mkdir django\django_full_stack
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\django
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  8:07 AM                django_full_stack
+
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> dir -recurse
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  8:07 AM                django
+d----            8/1/2020  8:07 AM                flask
+d----            8/1/2020  8:06 AM                my_environments
+d----            8/1/2020  8:06 AM                python
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\django
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  8:07 AM                django_full_stack
+d----            8/1/2020  8:07 AM                django_intro
+d----            8/1/2020  8:07 AM                django_orm
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\flask
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  8:07 AM                flask_fundamentals
+d----            8/1/2020  8:07 AM                flask_mysql
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\python
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  8:06 AM                fundamentals
+d----            8/1/2020  8:06 AM                oop
+
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> dir -recurse | where { $_.iscontainer }
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> dir -recurse | where { $_.ispscontainer }
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> $x = dir -recurse
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> $x[0]
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  8:07 AM                django
+
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> $x[0] | gm
+
+
+   TypeName: System.IO.DirectoryInfo
+
+Name                      MemberType     Definition
+----                      ----------     ----------
+LinkType                  CodeProperty   System.String LinkType{get=GetLinkType;}
+Mode                      CodeProperty   System.String Mode{get=Mode;}
+ModeWithoutHardLink       CodeProperty   System.String ModeWithoutHardLink{get=ModeWithoutHardLink;}
+Target                    CodeProperty   System.String Target{get=GetTarget;}
+Create                    Method         void Create()
+CreateSubdirectory        Method         System.IO.DirectoryInfo CreateSubdirectory(string path)
+Delete                    Method         void Delete(), void Delete(bool recursive)
+EnumerateDirectories      Method         System.Collections.Generic.IEnumerable[System.IO.DirectoryInfo] EnumerateDirectories(), System.Collections.Generic.IEnumerable[System.IO.…
+EnumerateFiles            Method         System.Collections.Generic.IEnumerable[System.IO.FileInfo] EnumerateFiles(), System.Collections.Generic.IEnumerable[System.IO.FileInfo] E…
+EnumerateFileSystemInfos  Method         System.Collections.Generic.IEnumerable[System.IO.FileSystemInfo] EnumerateFileSystemInfos(), System.Collections.Generic.IEnumerable[Syste…
+Equals                    Method         bool Equals(System.Object obj)
+GetDirectories            Method         System.IO.DirectoryInfo[] GetDirectories(), System.IO.DirectoryInfo[] GetDirectories(string searchPattern), System.IO.DirectoryInfo[] Get…
+GetFiles                  Method         System.IO.FileInfo[] GetFiles(), System.IO.FileInfo[] GetFiles(string searchPattern), System.IO.FileInfo[] GetFiles(string searchPattern,…
+GetFileSystemInfos        Method         System.IO.FileSystemInfo[] GetFileSystemInfos(), System.IO.FileSystemInfo[] GetFileSystemInfos(string searchPattern), System.IO.FileSyste…
+GetHashCode               Method         int GetHashCode()
+GetLifetimeService        Method         System.Object GetLifetimeService()
+GetObjectData             Method         void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context), void ISer…
+GetType                   Method         type GetType()
+InitializeLifetimeService Method         System.Object InitializeLifetimeService()
+MoveTo                    Method         void MoveTo(string destDirName)
+Refresh                   Method         void Refresh()
+ToString                  Method         string ToString()
+PSChildName               NoteProperty   string PSChildName=django
+PSDrive                   NoteProperty   PSDriveInfo PSDrive=C
+PSIsContainer             NoteProperty   bool PSIsContainer=True
+PSParentPath              NoteProperty   string PSParentPath=Microsoft.PowerShell.Core\FileSystem::C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python
+PSPath                    NoteProperty   string PSPath=Microsoft.PowerShell.Core\FileSystem::C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\django
+PSProvider                NoteProperty   ProviderInfo PSProvider=Microsoft.PowerShell.Core\FileSystem
+Attributes                Property       System.IO.FileAttributes Attributes {get;set;}
+CreationTime              Property       datetime CreationTime {get;set;}
+CreationTimeUtc           Property       datetime CreationTimeUtc {get;set;}
+Exists                    Property       bool Exists {get;}
+Extension                 Property       string Extension {get;}
+FullName                  Property       string FullName {get;}
+LastAccessTime            Property       datetime LastAccessTime {get;set;}
+LastAccessTimeUtc         Property       datetime LastAccessTimeUtc {get;set;}
+LastWriteTime             Property       datetime LastWriteTime {get;set;}
+LastWriteTimeUtc          Property       datetime LastWriteTimeUtc {get;set;}
+Name                      Property       string Name {get;}
+Parent                    Property       System.IO.DirectoryInfo Parent {get;}
+Root                      Property       System.IO.DirectoryInfo Root {get;}
+BaseName                  ScriptProperty System.Object BaseName {get=$this.Name;}
+
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> dir -recurse | where { $_.psiscontainer } | select fullname
+
+FullName
+--------
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\django
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\flask
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\python
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\django\django_full_stack
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\django\django_intro
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\django\django_orm
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\flask\flask_fundamentals
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\flask\flask_mysql
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\python\fundamentals
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\python\oop
+
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> notepad folderlist.txt
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> git status
+On branch add-css
+Your branch is up to date with 'origin/add-css'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ./
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> git add *
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> git commit -m "hw"
+[add-css 19d5e10] hw
+ 1 file changed, 15 insertions(+)
+ create mode 100644 Python/folderlist.txt
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 522 bytes | 522.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/twtseng/Dojo_Assignments.git
+   9c58a14..19d5e10  add-css -> add-css
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> git status
+On branch add-css
+Your branch is up to date with 'origin/add-css'.
+
+nothing to commit, working tree clean
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> git push
+To https://github.com/twtseng/Dojo_Assignments.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/twtseng/Dojo_Assignments.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> git pull
+remote: Enumerating objects: 2, done.
+remote: Counting objects: 100% (2/2), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 2 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (2/2), 1.18 KiB | 109.00 KiB/s, done.
+From https://github.com/twtseng/Dojo_Assignments
+   0f66803..8ea4253  master     -> origin/master
+Updating ddc4404..8ea4253
+Fast-forward
+ Python/folderlist.txt                              | 15 +++++++++++++++
+ WebFundamentals/Git/BranchingAndMerging/index.html | 11 +++++++----
+ WebFundamentals/Git/BranchingAndMerging/style.css  | 10 ++++++++++
+ 3 files changed, 32 insertions(+), 4 deletions(-)
+ create mode 100644 Python/folderlist.txt
+ create mode 100644 WebFundamentals/Git/BranchingAndMerging/style.css
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> git branch
+  add-css
+  edits_to_secure.txt
+* master
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> git branch -d -f add-css
+Deleted branch add-css (was 19d5e10).
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> git branch -d -f edits_to_secure.txt
+Deleted branch edits_to_secure.txt (was 53f91fc).
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> git branch
+* master
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> cd .\my_environments\
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> dir
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> python -m venv py3env
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> di
+di: The term 'di' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> dir
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  8:17 AM                py3env
+
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> call .\py3env\Scripts\activate
+call: The term 'call' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> .\py3env\Scripts\activate
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> deactivate
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> .\py3env\Scripts\activate
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> pip list
+Package    Version
+---------- -------
+pip        20.1.1
+setuptools 47.1.0
+WARNING: You are using pip version 20.1.1; however, version 20.2 is available.
+You should consider upgrading via the 'c:\users\tomts\source\repos\codingdojo\dojo_assignments\python\my_environments\py3env\scripts\python.exe -m pip install --upgrade pip' command.
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> c:\users\tomts\source\repos\codingdojo\dojo_assignments\python\my_environments\py3env\scripts\python.exe -m pip install --upgrade pip
+Collecting pip
+  Downloading pip-20.2-py2.py3-none-any.whl (1.5 MB)
+     |████████████████████████████████| 1.5 MB 6.4 MB/s
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 20.1.1
+    Uninstalling pip-20.1.1:
+      Successfully uninstalled pip-20.1.1
+Successfully installed pip-20.2
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> pip list
+Package    Version
+---------- -------
+pip        20.2
+setuptools 47.1.0
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> deactivate
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> pip list
+Package              Version
+-------------------- ----------
+adal                 1.2.2
+astroid              2.3.3
+azure-common         1.1.24
+azure-cosmosdb-nspkg 2.0.2
+azure-cosmosdb-table 1.0.6
+azure-nspkg          3.0.2
+azure-storage-common 2.1.0
+azure-storage-queue  2.1.0
+azurerm              0.10.0
+certifi              2019.11.28
+cffi                 1.14.0
+chardet              3.0.4
+colorama             0.4.3
+cryptography         2.8
+idna                 2.9
+isort                4.3.21
+lazy-object-proxy    1.4.3
+mccabe               0.6.1
+pip                  20.0.2
+pycparser            2.19
+PyJWT                1.7.1
+pylint               2.4.4
+python-constraint    1.4.0
+python-dateutil      2.8.1
+requests             2.23.0
+six                  1.14.0
+typed-ast            1.4.1
+urllib3              1.25.8
+wrapt                1.11.2
+WARNING: You are using pip version 20.0.2; however, version 20.2 is available.
+You should consider upgrading via the 'C:\Users\tomts\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\python.exe -m pip install --upgrade pip' command.
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> dir
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  8:17 AM                py3env
+
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> .\py3env\Scripts\activate
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> pip list
+Package    Version
+---------- -------
+pip        20.2
+setuptools 47.1.0
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> python /?
+usage: C:\Users\tomts\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.7_qbz5n2kfra8p0\python.exe [option] ... [-c cmd | -m mod | file | -] [arg] ...
+Options and arguments (and corresponding environment variables):
+-b     : issue warnings about str(bytes_instance), str(bytearray_instance)
+         and comparing bytes/bytearray with str. (-bb: issue errors)
+-B     : don't write .pyc files on import; also PYTHONDONTWRITEBYTECODE=x
+-c cmd : program passed in as string (terminates option list)
+-d     : debug output from parser; also PYTHONDEBUG=x
+-E     : ignore PYTHON* environment variables (such as PYTHONPATH)
+-h     : print this help message and exit (also --help)
+-i     : inspect interactively after running script; forces a prompt even
+         if stdin does not appear to be a terminal; also PYTHONINSPECT=x
+-I     : isolate Python from the user's environment (implies -E and -s)
+-m mod : run library module as a script (terminates option list)
+-O     : remove assert and __debug__-dependent statements; add .opt-1 before
+         .pyc extension; also PYTHONOPTIMIZE=x
+-OO    : do -O changes and also discard docstrings; add .opt-2 before
+         .pyc extension
+-q     : don't print version and copyright messages on interactive startup
+-s     : don't add user site directory to sys.path; also PYTHONNOUSERSITE
+-S     : don't imply 'import site' on initialization
+-u     : force the stdout and stderr streams to be unbuffered;
+         this option has no effect on stdin; also PYTHONUNBUFFERED=x
+-v     : verbose (trace import statements); also PYTHONVERBOSE=x
+         can be supplied multiple times to increase verbosity
+-V     : print the Python version number and exit (also --version)
+         when given twice, print more information about the build
+-W arg : warning control; arg is action:message:category:module:lineno
+         also PYTHONWARNINGS=arg
+-x     : skip first line of source, allowing use of non-Unix forms of #!cmd
+-X opt : set implementation-specific option. The following options are available:
+
+         -X faulthandler: enable faulthandler
+         -X showrefcount: output the total reference count and number of used
+             memory blocks when the program finishes or after each statement in the
+             interactive interpreter. This only works on debug builds
+         -X tracemalloc: start tracing Python memory allocations using the
+             tracemalloc module. By default, only the most recent frame is stored in a
+             traceback of a trace. Use -X tracemalloc=NFRAME to start tracing with a
+             traceback limit of NFRAME frames
+         -X showalloccount: output the total count of allocated objects for each
+             type when the program finishes. This only works when Python was built with
+             COUNT_ALLOCS defined
+         -X importtime: show how long each import takes. It shows module name,
+             cumulative time (including nested imports) and self time (excluding
+             nested imports). Note that its output may be broken in multi-threaded
+             application. Typical usage is python3 -X importtime -c 'import asyncio'
+         -X dev: enable CPythonΓÇÖs ΓÇ£development modeΓÇ¥, introducing additional runtime
+             checks which are too expensive to be enabled by default. Effect of the
+             developer mode:
+                * Add default warning filter, as -W default
+                * Install debug hooks on memory allocators: see the PyMem_SetupDebugHooks() C function
+                * Enable the faulthandler module to dump the Python traceback on a crash
+                * Enable asyncio debug mode
+                * Set the dev_mode attribute of sys.flags to True
+         -X utf8: enable UTF-8 mode for operating system interfaces, overriding the default
+             locale-aware mode. -X utf8=0 explicitly disables UTF-8 mode (even when it would
+             otherwise activate automatically)
+
+--check-hash-based-pycs always|default|never:
+    control how Python invalidates hash-based .pyc files
+file   : program read from script file
+-      : program read from stdin (default; interactive mode if a tty)
+arg ...: arguments passed to program in sys.argv[1:]
+
+Other environment variables:
+PYTHONSTARTUP: file executed on interactive startup (no default)
+PYTHONPATH   : ';'-separated list of directories prefixed to the
+               default module search path.  The result is sys.path.
+PYTHONHOME   : alternate <prefix> directory (or <prefix>;<exec_prefix>).
+               The default module search path uses <prefix>\python{major}{minor}.
+PYTHONCASEOK : ignore case in 'import' statements (Windows).
+PYTHONUTF8: if set to 1, enable the UTF-8 mode.
+PYTHONIOENCODING: Encoding[:errors] used for stdin/stdout/stderr.
+PYTHONFAULTHANDLER: dump the Python traceback on fatal errors.
+PYTHONHASHSEED: if this variable is set to 'random', a random value is used
+   to seed the hashes of str, bytes and datetime objects.  It can also be
+   set to an integer in the range [0,4294967295] to get hash values with a
+   predictable seed.
+PYTHONMALLOC: set the Python memory allocators and/or install debug hooks
+   on Python memory allocators. Use PYTHONMALLOC=debug to install debug
+   hooks.
+PYTHONCOERCECLOCALE: if this variable is set to 0, it disables the locale
+   coercion behavior. Use PYTHONCOERCECLOCALE=warn to request display of
+   locale coercion and locale compatibility warnings on stderr.
+PYTHONBREAKPOINT: if this variable is set to 0, it disables the default
+   debugger. It can be set to the callable of your debugger of choice.
+PYTHONDEVMODE: enable the development mode.
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> dir
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  8:17 AM                py3env
+
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> h
+
+  Id     Duration CommandLine
+  --     -------- -----------
+   1        0.331 python -V
+   2        0.037 .\zcodingdojo.ps1
+   3        0.072 dir
+   4        0.020 cd .\Dojo_Assignments\
+   5        0.028 dir
+   6        0.009 cd .\Python\
+   7        0.004 dir
+   8        0.067 mkdir my_environments
+   9        0.035 mkdir python
+  10        0.019 mkdir python\fundamentals
+  11        0.020 mkdir python\oop
+  12        0.018 mkdir flask
+  13        0.019 mkdir flask\flask_fundamentals
+  14        0.018 mkdir flask\flask_mysql
+  15        0.020 mkdir django
+  16        0.024 mkdir django\django_intro
+  17        0.017 mkdir django\django_orm
+  18        0.017 mkdir django\django_full_stack
+  19        0.028 dir -recurse
+  20        0.031 dir -recurse | where { $_.iscontainer }
+  21        0.028 dir -recurse | where { $_.ispscontainer }
+  22        0.013 $x = dir -recurse
+  23        0.072 $x[0]
+  24        0.271 $x[0] | gm
+  25        0.118 dir -recurse | where { $_.psiscontainer } | select fullname
+  26        0.032 notepad folderlist.txt
+  27        0.086 git status
+  28        0.079 git add *
+  29        0.119 git commit -m "hw"
+  30        4.789 git push
+  31        0.063 git status
+  32        0.091 git checkout master
+  33        0.059 git status
+  34        1.461 git push
+  35        0.633 git pull
+  36        0.059 git status
+  37        0.150 git branch
+  38        0.066 git branch -d -f add-css
+  39        0.081 git branch -d -f edits_to_secure.txt
+  40        0.088 git branch
+  41        0.011 cd .\my_environments\
+  42        0.006 dir
+  43       11.874 python -m venv py3env
+  44        0.228 di
+  45        0.066 dir
+  46        0.106 call .\py3env\Scripts\activate
+  47        0.044 .\py3env\Scripts\activate
+  48        0.014 deactivate
+  49        0.005 .\py3env\Scripts\activate
+  50        0.970 pip list
+  51        6.920 c:\users\tomts\source\repos\codingdojo\dojo_assignments\python\my_environments\py3env\scripts\python.exe -m pip install --upgrade pip
+  52        0.824 pip list
+  53        0.003 deactivate
+  54        4.282 pip list
+  55        0.062 dir
+  56        0.008 .\py3env\Scripts\activate
+  57        0.704 pip list
+  58        0.248 python /?
+  59        0.018 dir
+
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> !56
+False
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> 56!
+>> ^C
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> pip list
+Package    Version
+---------- -------
+pip        20.2
+setuptools 47.1.0
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> pip install Django==2.2.4
+Collecting Django==2.2.4
+  Downloading Django-2.2.4-py3-none-any.whl (7.5 MB)
+     |████████████████████████████████| 7.5 MB 3.3 MB/s
+Collecting pytz
+  Downloading pytz-2020.1-py2.py3-none-any.whl (510 kB)
+     |████████████████████████████████| 510 kB 6.4 MB/s
+Collecting sqlparse
+  Downloading sqlparse-0.3.1-py2.py3-none-any.whl (40 kB)
+     |████████████████████████████████| 40 kB 2.6 MB/s
+Installing collected packages: pytz, sqlparse, Django
+Successfully installed Django-2.2.4 pytz-2020.1 sqlparse-0.3.1
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> pip freeze
+Django==2.2.4
+pytz==2020.1
+sqlparse==0.3.1
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> pip list
+Package    Version
+---------- -------
+Django     2.2.4
+pip        20.2
+pytz       2020.1
+setuptools 47.1.0
+sqlparse   0.3.1
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments> cd C:\Users\tomts\Desktop\
+(py3env) PS C:\Users\tomts\Desktop> pip freeze > requirements.txt
+(py3env) PS C:\Users\tomts\Desktop> notepad .\requirements.txt
+(py3env) PS C:\Users\tomts\Desktop> pip uninstall Django
+Found existing installation: Django 2.2.4
+Uninstalling Django-2.2.4:
+  Would remove:
+    c:\users\tomts\source\repos\codingdojo\dojo_assignments\python\my_environments\py3env\lib\site-packages\django-2.2.4.dist-info\*
+    c:\users\tomts\source\repos\codingdojo\dojo_assignments\python\my_environments\py3env\lib\site-packages\django\*
+    c:\users\tomts\source\repos\codingdojo\dojo_assignments\python\my_environments\py3env\scripts\django-admin.exe
+    c:\users\tomts\source\repos\codingdojo\dojo_assignments\python\my_environments\py3env\scripts\django-admin.py
+Proceed (y/n)? y
+  Successfully uninstalled Django-2.2.4
+(py3env) PS C:\Users\tomts\Desktop> pip show Django
+WARNING: Package(s) not found: Django
+(py3env) PS C:\Users\tomts\Desktop> pip search Flask
+Flask-Pure (0.5)            - Flask-Pure - a Flask extension for Pure.css
+Flask-SimpleMDE (0.3.0)     - Flask-SimpleMDE - a Flask extension for SimpleMDE
+Flask-OrientDB (0.1)        - A Flask extension for using OrientDB with Flask
+sockjs-flask (0.3)          - SockJs for Flask
+Flask-Stripe (0.1.0)        - Flask-Stripe
+Flask-Quik (0.1.1)          - Quik for Flask
+Flask-Helper (1.2.1)        - Flask Helper
+Flask-ElasticUtils (0.1.7)  - ElasticUtils for Flask
+Flask-PubSub (0.1.0)        - Flask-PubSub
+Flask-Waitress (0.0.1)      - Flask Waitress
+flask-helloworld (1.0.0)    - Flask Helloworld
+flask-live (0.0.1)          - Flask Live
+flask-zs (0.0.25)           - A helpers for Flask.
+Flask-BDEA (0.1.0)          - Flask-BDEA
+Flask-GripControl (0.0.1)   - Flask GripControl
+Flask-TinyMce (0.1.6)       - flask tinymce
+Flask-SRI (0.1.0)           - Flask-SRI
+Flask-Intercom (0.1.0)      - Flask-Intercom
+Flask-SPF (0.0.0)           - Flask-SPF
+flask-toolbox (0.0.2)       - A flask toolbox.
+Flask-Turbolinks (0.2.0)    - Turbolinks for Flask.
+Flask-Watson (0.1.0)        - Flask-Watson
+Flask-Shopify (0.2)         - Shopify Flask
+Flask-Ext (0.1)             - Extensions of Flask
+Flask-OAuthlib (0.9.5)      - OAuthlib for Flask
+flask-ws (0.0.1.0)          - Websocket for flask.
+Flask-MDE (1.2.0)           - Pagedown for Flask
+Flask-FileRev (0.1.0)       - Flask-FileRev
+Flask-TaskTiger (0.0.1)     - Flask TaskTiger
+Flask-Weixin (0.5.0)        - Weixin for Flask.
+flask-abort (0.0.1)         - flask abort
+flask-ypaginate (0.1.3)     - Pagination for Flask
+Flask-Mustache (0.4.1)      - Mustache for Flask
+Flask-AutoIndex (0.6.6)     - The mod_autoindex for Flask
+Flask-Clearbit (0.1.0)      - Flask-Clearbit
+Flask-FontAwesome (0.1.4)   - FontAwesome for Flask
+Fifty-Flask (1.4.0)         - Flask enhancements.
+Flask-Chargebee (0.0.1)     - Flask-Chargebee
+Flask-Keen (0.1.0)          - Flask-Keen
+Flask-NextCaller (0.1.0)    - Flask-NextCaller
+Flask-Gears (0.2)           - Gears for Flask
+flask-mico (0.2.2)          - flask mico
+flask-serializer (0.0.4)    - A Flask serializer built with marshmallow and flask-sqlalchemy
+Flask-GeoIP (0.1.3)         - Flask-GeoIP -------------  Simple Flask extension for pygeoip.
+airbrake-flask (1.0.7)      - airbrake-flask - Airbrake client for Python Flask
+Flask-Diced (0.3)           - Flask-Diced - CRUD views generator for Flask
+Flask-hCaptcha (0.5.1)      - A hCaptcha extension for Flask based on flask-recaptcha
+Flask-LoginManager (1.1.6)  - Flask-Loginmanager supports multiple roles and permissions for Flask, inspired by Flask-Login
+Flask-RESTive (0.0.3)       - Flask RESTive is a REST API Flask extension based on Flask-RESTful & Marshmallow.
+Flask-FlatPagesCut (0.5.1)  - Flask-FlatPagesCut is fork Flask-FlatPages (Provides flat static pages to a Flask application)
+flask-lesscss (0.9.1)       - A small Flask extension that adds LessCSS support to Flask.
+flask-stylus2css (0.1)      - A small Flask extension that adds Stylus support to Flask.
+flask-coffee2js (0.1.2)     - A small Flask extension that adds CoffeScript support to Flask.
+flask-shell (0.1.3)         - Flask extension to improve shell command for the Flask CLI.
+Flask-Collect (1.3.2)       - Flask-Collect -- Collect static files in Flask application
+flask-filters (0.3)         - The Flask Filter to use with flask-restful and Relational DB
+Flask-OpenID (1.2.5)        - OpenID support for Flask
+Flask-Triangle (0.5.4)      - Integration of AngularJS and Flask.
+Flask-Funnel (0.1.10)       - Asset management for Flask.
+Flask-mongobit (0.3.0)      - MongoBit support in Flask
+Flask-Breve (0.2)           - Breve templating with Flask
+Flask-SaeStorage (0.9.0)    - SAE Storage for Flask
+Flask-Navigation (0.2.0)    - The navigation of Flask application.
+Flask-Passlib (0.1)         - Flask extension for passlib
+flask-discoverer (0.1.4)    - Flask API autodiscovery
+Flask-ZMQ (0.1.2)           - Flask extension for ZMQ
+Flask-Vises (2.1.4)         - A Flask scaffold library
+Flask-sshtunnel (0.1b2)     - sshtunnel extension for flask
+Flask-MDEditor (0.1.3)      - MDEditor integration for Flask
+Flask-Enterprise (1.0)      - Enterprise capabilities for Flask
+flask-kombu (0.1.0)         - Flask and Kombu integration.
+flask-tat (0.0.10)          - Flask TAT client
+Flask-Failsafe (0.2)        - A failsafe for the Flask reloader
+Flask-Testing (0.8.0)       - Unit testing for Flask
+nailpack-flask (0.1.0)      - Flask support for nails
+flask-authentic (0.0.11)    - Flask Authentic Extension
+Flask-Avatar (0.1.3)        - To generate avatar for flask
+flask-now (0.2.2)           - Flask App Generator
+Flask-Storm (0.2.0)         - Storm integration for Flask.
+Flask-Shelve (0.1.1)        - Shelve support for Flask
+Flask-Edits (0.8)           - Editable Content in Flask
+Flask-CKEditor (0.4.4.1)    - CKEditor integration for Flask.
+Flask-Zero (0.9.6)          - Qiniu Storage for Flask
+Flask-CuttlePool (0.2.1)    - A Flask extension for CuttlePool
+flask-logsocketio (0.1.4)   - Flask LogSocketIo module
+flask-serial (1.1.0)        - Flask extension for the Serial
+flask-snow (0.2.8)          - Pysnow extension for Flask
+Flask-Slack (0.1.5)         - Slack extension for Flask.
+Flask-Triangle3 (0.5.3)     - Integration of AngularJS and Flask.
+Flask-Autodoc (0.1.2)       - Documentation generator for flask
+Flask-PyFCM (0.1.1)         - Flask extension for PyFCM
+Flask-wechatpy (0.1.3)      - wechatpy for flask extension
+flask-mdict (1.1.5)         - Flask Mdict Server
+flask-fast (0.0.1.dev0)     - Flask-fast. It's fast.
+Flask-CAS (1.0.2)           - Flask extension for CAS
+Flask-SAML (0.4.3)          - Flask SAML integration
+Flask-Flarf (0.0.5)         - Flask request filtering
+flask-adh (0.1)             - flask admin antd
+Flask-Sixpack (0.0.1)       - Flask wrapper for Sixpack
+Flask-wangEditor (0.0.3.2)  - wangEditor integration for Flask.
+(py3env) PS C:\Users\tomts\Desktop> notepad PracticPipAndVirtual.txt
+(py3env) PS C:\Users\tomts\Desktop> cd ..
+(py3env) PS C:\Users\tomts> .\zcodingdojo.ps1
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo> dir
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           7/31/2020 12:27 PM                Dojo_Assignments
+d----           7/24/2020  2:03 PM                Dojo_Exams
+d----           7/29/2020  9:32 AM                Practice
+
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo> cd .\Dojo_Assignments\
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments> dir
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           7/20/2020 10:54 AM                C#
+d----           7/20/2020 10:55 AM                MERN
+d----           7/30/2020 12:32 PM                Projects
+d----            8/1/2020  8:14 AM                Python
+d----           7/30/2020 11:45 AM                WebFundamentals
+-a---           7/31/2020 10:37 AM            564 .gitignore
+-a---           7/31/2020 10:38 AM             14 secret.txt
+-a---           7/31/2020 12:28 PM             95 secure.txt
+
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments> cd .\Python\
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> dir
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  8:07 AM                django
+d----            8/1/2020  8:07 AM                flask
+d----            8/1/2020  8:17 AM                my_environments
+d----            8/1/2020  8:06 AM                python
+-a---            8/1/2020  8:14 AM           1025 folderlist.txt
+
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> python
+Python 3.7.8 (tags/v3.7.8:4b47a5b6ba, Jun 28 2020, 10:03:53) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> print("Hello worrld")
+Hello worrld
+>>> quit
+Use quit() or Ctrl-Z plus Return to exit
+>>> ^Z
+
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> dir
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  8:07 AM                django
+d----            8/1/2020  8:07 AM                flask
+d----            8/1/2020  8:17 AM                my_environments
+d----            8/1/2020  8:06 AM                python
+-a---            8/1/2020  8:14 AM           1025 folderlist.txt
+
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> .\my_environments\py3env\Scripts\activate
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> deactivate
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> .\my_environments\py3env\Scripts\activate
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> notepad test.py
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> .\test.py
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> python .\test.py
+hello workd
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> del .\test.py
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> python
+Python 3.7.8 (tags/v3.7.8:4b47a5b6ba, Jun 28 2020, 10:03:53) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> print("This is my name",123)
+This is my name 123
+>>> print("This is my name"+123)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can only concatenate str (not "int") to str
+>>> print("This is my name"+"123")
+This is my name123
+>>> print("This is my name",str(123))
+This is my name 123
+>>> firstName="joe"
+>>> lastName="Blow"
+>>> print("Hi there {firstName} {lastName}")
+Hi there {firstName} {lastName}
+>>> firstName
+'joe'
+>>> print(f"Hi there {firstName} {lastName}")
+Hi there joe Blow
+>>> print("Hi there {} {}".format(firstName, lastName))
+Hi there joe Blow
+>>> print("Hi there {} {}".format(firstName, 2345))
+Hi there joe 2345
+>>> firstName.title()
+'Joe'
+>>> firstName.upper()
+'JOE'
+>>> firstName.lower()
+'joe'
+>>> firstName.count('o')
+1
+>>> sentence="I like my pie"
+>>> sentence.split()
+['I', 'like', 'my', 'pie']
+>>> sentence.isalnum()
+False
+>>> sentence.isalpha()
+False
+>>> firstName.isalpha()
+True
+>>> firstName.islower()
+True
+>>> firstName.isupper()
+False
+>>> ^Z
+
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> dir
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  8:07 AM                django
+d----            8/1/2020  8:07 AM                flask
+d----            8/1/2020  8:17 AM                my_environments
+d----            8/1/2020  8:06 AM                python
+-a---            8/1/2020  8:14 AM           1025 folderlist.txt
+
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> mkdir HelloWorld
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  9:21 AM                HelloWorld
+
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> cd .\HelloWorld\
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\HelloWorld> code .
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\HelloWorld> python
+Python 3.7.8 (tags/v3.7.8:4b47a5b6ba, Jun 28 2020, 10:03:53) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> mystring="This is what I like"
+>>> mystring.split()
+['This', 'is', 'what', 'I', 'like']
+>>> mystring.length()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'str' object has no attribute 'length'
+>>> mystring.len()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'str' object has no attribute 'len'
+>>> length(mystring)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'length' is not defined
+>>> len(mystring)
+19
+>>> mystring.contains("this")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'str' object has no attribute 'contains'
+>>> "this" in mystring
+False
+>>> mystring
+'This is what I like'
+>>> "This" in mystring
+True
+>>> "what" in mystring
+True
+>>> MyString
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'MyString' is not defined
+>>> mystring
+'This is what I like'
+>>> myobj = { 'firstname' : 'joe', 'lastname' : 'blow', 'items' : [1,2,3] }
+>>> myobj.firstname
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'dict' object has no attribute 'firstname'
+>>> myobj
+{'firstname': 'joe', 'lastname': 'blow', 'items': [1, 2, 3]}
+>>> myobj['firstname']
+'joe'
+>>> myobj['lastname']
+'blow'
+>>> myobj['items']
+[1, 2, 3]
+>>> type(myobj)
+<class 'dict'>
+>>> for i in (0,10,1):
+...     print(i)
+...
+0
+10
+1
+>>> for i in range(0,10,1):
+...     print(i)
+...
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+>>> for i in range(0,10,3):
+...     print(i)
+...
+0
+3
+6
+9
+>>> mylist = ["you","are","my","good","friend"]
+>>> mylist
+['you', 'are', 'my', 'good', 'friend']
+>>> for x in mylist:
+...     print(x)
+...
+you
+are
+my
+good
+friend
+>>> for x in myobj:
+...     print(x)
+...
+firstname
+lastname
+items
+>>> for x in myobj.keys():
+...     print(x)
+...
+firstname
+lastname
+items
+>>> for x in myobj.values():
+...     print(x)
+...
+joe
+blow
+[1, 2, 3]
+>>> for x in myobj.items():
+...     print(x)
+...
+('firstname', 'joe')
+('lastname', 'blow')
+('items', [1, 2, 3])
+>>> ^Z
+
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\HelloWorld> cd ..
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> mkdir ForLoopBasic1
+
+
+    Directory: C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----            8/1/2020  9:47 AM                ForLoopBasic1
+
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> cd ForLoopBasic1
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\ForLoopBasic1> code .
+(py3env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\ForLoopBasic1> python
+Python 3.7.8 (tags/v3.7.8:4b47a5b6ba, Jun 28 2020, 10:03:53) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> #1
+>>> def a():
+...     return 5
+... print(a())
+  File "<stdin>", line 3
+    print(a())
+        ^
+SyntaxError: invalid syntax
+>>> def a():
+...     return 5
+...
+>>> print(a())
+5
+>>> print(a()+a())
+10
+>>> notepad
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'notepad' is not defined
+>>> #3
+>>> def a():
+...     return 5
+...     return 10
+...
+>>> print(a())
+5
+>>> #4
+>>> def a():
+...     return 5
+...     print(10)
+...
+>>> print(a())
+5
+>>> #5
+>>> def a():
+...     print(5)
+...
+>>> x = a()
+5
+>>> print(x)
+None
+>>> #6
+>>> def a(b,c):
+...     print(b+c)
+...
+>>> print(a(1,2) + a(2,3))
+3
+5
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'NoneType'
+>>> #7
+>>> def a(b,c):
+...     return str(b)+str(c)
+...
+>>> print(a(2,5))
+25
+>>> #8
+>>> def a():
+...     b = 100
+...     print(b)
+...     if b < 10:
+...         return 5
+...     else:
+...         return 10
+...     return 7
+...
+>>> print(a())
+100
+10
+>>> #9
+>>> def a(b,c):
+...     if b<c:
+...         return 7
+...     else:
+...         return 14
+...     return 3
+...
+>>> print(a(2,3))
+7
+>>> print(a(5,3))
+14
+>>> print(a(2,3) + a(5,3))
+21
+>>> #10
+>>> def a(b,c):
+...     return b+c
+...     return 10
+...
+>>> print(a(3,5))
+8
+>>> #11
+>>> b = 500
+>>> print(b)
+500
+>>> def a():
+...     b = 300
+...     print(b)
+...
+>>> print(b)
+500
+>>> a()
+300
+>>> print(b)
+500
+>>> #12
+>>> b = 500
+>>> print(b)
+500
+>>> def a():
+...     b = 300
+...     print(b)
+...     return b
+...
+>>> print(b)
+500
+>>> a()
+300
+300
+>>> print(b)
+500
+>>>
+>>>
+>>> #13
+>>> b = 500
+>>> print(b)
+500
+>>> def a():
+...     b = 300
+...     print(b)
+...     return b
+...
+>>> print(b) #500
+500
+>>> b=a()#300
+300
+>>> print(b) #300
+300
+>>>
+>>>
+>>> #14
+>>> def a():
+...     print(1)
+...     b()
+...     print(2)
+...
+>>> def b():
+...     print(3)
+...
+>>> a() # 1 3 2
+1
+3
+2
+>>>
+>>> #15
+>>> def a():
+...     print(1)
+...     x = b()
+...     print(x)
+...     return 10
+...
+>>> def b():
+...     print(3)
+...     return 5
+...
+>>> y = a() # 1 3 5
+1
+3
+5
+>>> print(y) # 10
+10
+>>>
