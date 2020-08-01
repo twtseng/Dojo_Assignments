@@ -1,0 +1,15 @@
+PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python> dir -recurse | where { $_.psiscontainer } | select fullname
+
+FullName
+--------
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\django
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\flask
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\my_environments
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\python
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\django\django_full_stack
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\django\django_intro
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\django\django_orm
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\flask\flask_fundamentals
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\flask\flask_mysql
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\python\fundamentals
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\python\oop
