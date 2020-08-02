@@ -1,3 +1,5 @@
+import unittest
+
 class MathDojo:
     def __init__(self):
         self.result = 0
@@ -15,13 +17,19 @@ class MathDojo:
         return self
 
 
-# create an instance:
-md = MathDojo()
-# to test:
-x = md.add(2).add(2, 5, 1).subtract(3, 2).result
-print(x)  # should print 5
-# run each of the methods a few more times and check the result!
-md.add(3,3,3)
-print(md.result)
-md.subtract(3,3,3)
-print(md.result)
+class test_MathDojo(unittest.TestCase):
+    def setUp(self):
+       self.md = MathDojo()
+       
+
+    def test_Add(self):
+        self.md.add(1,2,3,4)
+        self.assertEqual(self.md.result, 10)
+
+    def test_Subtract(self):
+        self.md.add(10)
+        self.md.subtract(2,3)
+        self.assertEqual(self.md.result, 5)
+
+if __name__ == "__main__":
+    unittest.main()
