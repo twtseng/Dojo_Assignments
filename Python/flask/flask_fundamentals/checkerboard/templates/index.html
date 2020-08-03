@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkerboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .even {
+            background-color: {{ color1 }};
+        }
+        .odd {
+            background-color: {{ color2 }};
+        }
+    </style>
+</head>
+<body>
+    <div class="checkboard">
+        {% for row in range(rows) %}
+        <div class="row">
+            {% for col in range(columns) %}
+                {% if (col+row) % 2 == 0 %}
+                <div class="boardSquare even"></div>
+                {% else %}
+                <div class="boardSquare odd"></div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

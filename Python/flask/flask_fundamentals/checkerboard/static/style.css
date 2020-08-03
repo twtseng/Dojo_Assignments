@@ -1,0 +1,12 @@
+* {
+    border: 0;
+    margin: 0;
+}
+.boardSquare {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+}
+.row {
+    display: flex;
+}
