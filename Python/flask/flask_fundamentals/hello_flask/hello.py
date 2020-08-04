@@ -1,4 +1,4 @@
-from flask import Flask  # Import Flask to allow us to create our app
+from flask import Flask, render_template  # Import Flask to allow us to create our app
 app = Flask(__name__)    # Create a new instance of the Flask class called "app"
 @app.route('/')          # The "@" decorator associates this route with the function immediately following
 def hello_world():
@@ -7,6 +7,15 @@ def hello_world():
 @app.route('/dojo')
 def success():
     return "Dojo!"
+
+@app.route('/lists')
+def lists():
+    student_info = [
+        {'name':'Michael', 'age':35},
+        {'name':'Sara', 'age':22},
+        {'name':'Erwin', 'age':10}
+    ]
+    return render_template("lists.html", random_numbers=[6,3,2,7], students=student_info)
 
 @app.route('/say/<name>')
 def hello(name):

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey Submitted Info</title>
+    <style>
+        .surveydata {
+            display: flex;
+            flex-flow: column;
+            width: 30%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="surveydata">
+        <label for="name">Your Name:</label>
+        <input type="text" name="name" id="name" value="{{ name }}">
+        <label for="location">Location:</label>
+        <input type="text" name="location" id="location" value="{{ location }}">
+        <label for="favorite_language">Location:</label>
+        <input type="text" name="favorite_language" id="favorite_language" value="{{ favorite_language }}">
+        <label for="comment">Comment:</label>
+        <textarea id="comment" name="comment" rows="4" cols="50">
+            {{ comment }}
+        </textarea>
+    </form>
+</body>
+
+</html>
