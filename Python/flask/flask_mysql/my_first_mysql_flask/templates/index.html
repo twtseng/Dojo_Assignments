@@ -16,7 +16,27 @@
 <body>
     <div class="container">
         <div class="jumbotron">
-            <h1>Hello, world!</h1>
+            <h1>Here are your friends</h1>
+            
+
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">FirstName</th>
+                    <th scope="col">LastName</th>
+                    <th scope="col">Occupation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for f in friends %}
+                    <tr>
+                        <td>{{ f.first_name }}</td>
+                        <td>{{f.last_name}}</td>
+                        <td>{{f.occupation}}</td>
+                      </tr>              
+                    {% endfor %}
+                </tbody>
+              </table>
         </div>
 
     </div>

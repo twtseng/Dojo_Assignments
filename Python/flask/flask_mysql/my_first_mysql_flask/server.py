@@ -9,7 +9,7 @@ def index():
     mysql = connectToMySQL('first_flask')
     friends = mysql.query_db('select * from friends')
     print(friends)
-    return render_template("index.html")
+    return render_template("index.html", friends = friends)
 
 if __name__ == "__main__":
     app.run(debug=True)
