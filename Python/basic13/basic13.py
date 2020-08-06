@@ -90,4 +90,12 @@ def string_for_negatives(arr):
             arr[i] = 'dojo'
     return arr
 
-print(string_for_negatives([1,2,3,-4,5,6,7,-8,9]))
+# print(string_for_negatives([1,2,3,-4,5,6,7,-8,9]))
+
+def wordLen(arr):
+    for i in range(len(arr)):
+        arr[i] = len(arr[i])
+    return arr
+
+# print(wordLen(['hello', 'world']))
+
