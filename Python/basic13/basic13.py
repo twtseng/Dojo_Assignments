@@ -99,3 +99,18 @@ def wordLen(arr):
 
 # print(wordLen(['hello', 'world']))
 
+class FooClass:
+    first_name = "Joe"
+    last_name = "Blow"
+
+    def change_name(self, fname, lname):
+        self.first_name = fname
+        self.last_name = lname
+
+    def display(self):
+        print(f"FooClass: FirstName:{self.first_name} LastName:{self.last_name}")
+
+x = FooClass()
+x.display()
+x.change_name("Jane","Brain")
+x.display()
