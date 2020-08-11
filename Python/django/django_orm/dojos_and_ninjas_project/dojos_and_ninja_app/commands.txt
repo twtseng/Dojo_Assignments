@@ -1,0 +1,141 @@
+(djangoPy3Env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\django\django_orm\dojos_and_ninjas_project> python.exe .\manage.py makemigrations                      Migrations for 'dojos_and_ninja_app':
+  dojos_and_ninja_app\migrations\0001_initial.py
+    - Create model Dojo
+    - Create model Ninja
+(djangoPy3Env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\django\django_orm\dojos_and_ninjas_project> python.exe .\manage.py migrate                             Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, dojos_and_ninja_app, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying dojos_and_ninja_app.0001_initial... OK
+  Applying sessions.0001_initial... OK
+(djangoPy3Env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\django\django_orm\dojos_and_ninjas_project> python.exe .\manage.py shell                               Python 3.7.8 (tags/v3.7.8:4b47a5b6ba, Jun 28 2020, 10:03:53) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from dojos_and_ninja_app.models import *
+>>> Dojo.objects.create(name="Slient and Deadly Men", city="Belleve", state="WA")
+<Dojo: Dojo object (1)>
+>>> Dojo.objects.create(name="Slient and Deadly Women", city="Seattle", state="WA")
+<Dojo: Dojo object (2)>
+>>> Dojo.objects.create(name="Slient and Deadly Children", city="Tacoma", state="WA")
+<Dojo: Dojo object (3)>
+
+>>> def print_dojos():
+...     for d in Dojo.objects.all():
+...             print(f"Name:{d.name} City:{d.city} State:{d.state}")
+...
+>>> print_dojos()
+Name:Slient and Deadly Men City:Belleve State:WA
+Name:Slient and Deadly Women City:Seattle State:WA
+Name:Slient and Deadly Children City:Tacoma State:WA
+>>> for d in Dojo.objects.all():
+...     d.delete()
+...
+(1, {'dojos_and_ninja_app.Ninja': 0, 'dojos_and_ninja_app.Dojo': 1})
+(1, {'dojos_and_ninja_app.Ninja': 0, 'dojos_and_ninja_app.Dojo': 1})
+(1, {'dojos_and_ninja_app.Ninja': 0, 'dojos_and_ninja_app.Dojo': 1})
+>>> print_dojos()
+>>> Dojo.objects.create(name="Slient and Deadly Men", city="Belleve", state="WA")
+<Dojo: Dojo object (4)>
+>>>
+>>> Dojo.objects.create(name="Slient and Deadly Women", city="Seattle", state="WA")
+<Dojo: Dojo object (5)>
+>>>
+>>> Dojo.objects.create(name="Slient and Deadly Children", city="Tacoma", state="WA")
+<Dojo: Dojo object (6)>
+>>> print_dojos()
+Name:Slient and Deadly Men City:Belleve State:WA
+Name:Slient and Deadly Women City:Seattle State:WA
+Name:Slient and Deadly Children City:Tacoma State:WA
+>>>
+>>>
+
+>>> def print_dojos():
+...     for d in Dojo.objects.all():
+...             print(f"Id:{d.id} Name:{d.name} City:{d.city} State:{d.state}")
+...
+>>> print_dojos()
+Id:4 Name:Slient and Deadly Men City:Belleve State:WA
+Id:5 Name:Slient and Deadly Women City:Seattle State:WA
+Id:6 Name:Slient and Deadly Children City:Tacoma State:WA
+
+>>> Ninja.objects.create(dojo_id = dojo1, first_name="Joe", last_name="Schmoe")
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'dojo1' is not defined
+>>>
+>>> dojo1 = Dojo.objects.get(id=4)
+>>> dojo2 = Dojo.objects.get(id=5)
+>>> dojo3 = Dojo.objects.get(id=6)
+>>> Ninja.objects.create(dojo_id = dojo1, first_name="Joe", last_name="Schmoe")
+<Ninja: Ninja object (1)>
+>>> Ninja.objects.create(dojo_id = dojo1, first_name="Joe2", last_name="Schmoe2")
+<Ninja: Ninja object (2)>
+>>> Ninja.objects.create(dojo_id = dojo1, first_name="Joe3", last_name="Schmoe3")
+<Ninja: Ninja object (3)>
+>>> Ninja.objects.create(dojo_id = dojo2, first_name="Suzy", last_name="Schmoe")
+<Ninja: Ninja object (4)>
+>>> Ninja.objects.create(dojo_id = dojo2, first_name="Suzy2", last_name="Schmoe2")
+<Ninja: Ninja object (5)>
+>>> Ninja.objects.create(dojo_id = dojo2, first_name="Suzy3", last_name="Schmoe3")
+<Ninja: Ninja object (6)>
+>>> Ninja.objects.create(dojo_id = dojo3, first_name="Lucy", last_name="Schmoe")
+<Ninja: Ninja object (7)>
+>>> Ninja.objects.create(dojo_id = dojo3, first_name="Lucy2", last_name="Schmoe2")
+<Ninja: Ninja object (8)>
+>>> Ninja.objects.create(dojo_id = dojo3, first_name="Lucy3", last_name="Schmoe3")
+<Ninja: Ninja object (9)>
+>>>
+
+>>> dojo3.ninjas.all()[0].first_name
+'Lucy'
+>>> dojo3.ninjas.all()[0].last_name
+'Schmoe'
+>>> ^Z
+
+now exiting InteractiveConsole...
+(djangoPy3Env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\django\django_orm\dojos_and_ninjas_project> python.exe .\manage.py makemigrations                      You are trying to add a non-nullable field 'desc' to dojo without a default; we can't do that (the database needs something to populate existing rows).
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+ 2) Quit, and let me add a default in models.py
+Select an option: 1
+Please enter the default value now, as valid Python
+The datetime and django.utils.timezone modules are available, so you can do e.g. timezone.now
+Type 'exit' to exit this prompt
+>>> "no description"
+Migrations for 'dojos_and_ninja_app':
+  dojos_and_ninja_app\migrations\0002_dojo_desc.py
+    - Add field desc to dojo
+(djangoPy3Env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\django\django_orm\dojos_and_ninjas_project> python.exe .\manage.py migrate                             Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, dojos_and_ninja_app, sessions
+Running migrations:
+  Applying dojos_and_ninja_app.0002_dojo_desc... OK
+(djangoPy3Env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\django\django_orm\dojos_and_ninjas_project> python.exe .\manage.py shell
+Python 3.7.8 (tags/v3.7.8:4b47a5b6ba, Jun 28 2020, 10:03:53) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from dojos_and_ninja_app.views import *
+>>> Dojo.objects.all()[0].desc
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Dojo' is not defined
+>>> from dojos_and_ninja_app.models import *
+>>> Dojo.objects.all()[0].desc
+'no description'
+>>> Dojo.objects.create(name="The Cobras", city="Issaquah", state="WA", desc="we specialize in snake style")
+<Dojo: Dojo object (7)>
+>>> Dojo.objects.all()
