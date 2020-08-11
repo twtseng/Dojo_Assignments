@@ -1,0 +1,41 @@
+(djangoPy3Env) PS C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\Python\django\django_orm\users> python .\manage.py shell
+Python 3.7.8 (tags/v3.7.8:4b47a5b6ba, Jun 28 2020, 10:03:53) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+
+>>> from users_app.models import *
+>>> User.objects.create(first_name="Joe", last_name="Blow", email_address="joeblow@foo.com", age=30)
+<User: User object (1)>
+>>> User.objects.create(first_name="Suzie", last_name="Queue", email_address="suziq@foo.com", age=40)
+<User: User object (2)>
+>>> User.objects.create(first_name="Dan", last_name="Doo", email_address="dandoo@foo.com", age=50)
+<User: User object (3)>
+>>> user3 = User.objects.get(id=3)
+>>> user3
+<User: User object (3)>
+>>> user3.last_name
+'Doo'
+>>> user3.last_name = "Pancakes"
+>>> user3.last_name
+'Pancakes'
+>>> user3.save()
+>>> user2 = User.objects.get(id=2)
+>>> print(user2)
+User object (2)
+>>> user2.first_name
+'Suzie'
+>>> user2.delete()
+(1, {'users_app.User': 1})
+
+>>> for user in User.objects.order_by("first_name"):
+...     print(f"{user.first_name} {user.last_name}")
+...
+Dan Pancakes
+Joe Blow
+
+>>> for user in User.objects.order_by("-first_name"):
+...     print(f"{user.first_name} {user.last_name}")
+...
+Joe Blow
+Dan Pancakes
+>>>
