@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Dojos and Ninjas</title>
+</head>
+<body>
+    <div class="container">
+        <div class="topSection">
+            <div class="jumbotron d-flex flex-row justify-content-around" id="add_dojo">
+                
+                <form action="/post" method="POST" class="d-flex flex-column align-items-center" > 
+                    {% csrf_token %}
+                    <h1>Add a Dojo</h1>
+                    <table>
+                        <input type="hidden" name="command" value="add_dojo">
+                        <tr>
+                            <td><label for="name">Name</label></td>
+                            <td><input type="text" name="name" id="name"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="city">City</label></td>
+                            <td><input type="text" name="city" id="city"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="state">State</label></td>
+                            <td><input type="text" maxlength="2" name="state" id="state"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="desc">Description</label></td>
+                            <td><input type="text" name="desc" id="desc"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><button>Add</button></td>
+                        </tr>
+                    </table>
+                </form>
+                <form action="/post" method="POST" class="d-flex flex-column align-items-center" > 
+                    {% csrf_token %}
+                    <h1>Add a Ninja</h1>
+                    <table>
+                        <input type="hidden" name="command" value="add_ninja">
+                        <tr>
+                            <td><label for="first_name">First Name</label></td>
+                            <td><input type="text" name="first_name" id="first_name"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="last_name">Last Name</label></td>
+                            <td><input type="text" name="last_name" id="last_name"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="dojo">Dojo</label></td>
+                            <td>
+                                <select name="dojo" id="dojo">
+                                    <option value="" disabled selected>Select a dojo</option>
+                                    {% for dojo in dojos %}
+                                    <option value="{{ dojo.id}}">{{ dojo.name }}</option>
+                                    {% endfor %}
+                                </select>   
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><button>Add</button></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <div class="bottomSection">
+            <div class="jumbotron text-center d-flex flex-column align-items-center" id="all_the_users">
+                <h1>All the Dojos</h1>
+                <ul class="text-left">
+                    {% for dojo in dojos %}
+                    <li style="list-style-type: none;"><h4>Ninjas at {{ dojo.name }}</h4></li>
+                    <ul>
+                        {% for ninja in dojo.ninjas.all %}
+                        <li style="list-style-position: inside;">{{ ninja.first_name }} {{ ninja.last_name }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

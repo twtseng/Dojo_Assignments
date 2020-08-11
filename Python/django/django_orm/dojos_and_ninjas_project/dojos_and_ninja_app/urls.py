@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from . import views
 urlpatterns = [
-    path('', include('dojos_and_ninja_app.urls')),
-    path('admin/', admin.site.urls),
+    path('', views.default_view),
+    path('post', views.handle_post),
 ]
