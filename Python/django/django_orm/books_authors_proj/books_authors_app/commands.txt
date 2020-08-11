@@ -1,0 +1,42 @@
+>>> from books_authors_app.models import *
+>>> Book.objects.create(title="Book1", desc="Description1")
+<Book: Book object (1)>
+>>> Book.objects.create(title="Book2", desc="Description1")
+<Book: Book object (2)>
+>>> Book.objects.create(title="Book3", desc="Description1")
+<Book: Book object (3)>
+>>> Book.objects.create(title="Book4", desc="Description1")
+<Book: Book object (4)>
+>>> Book.objects.create(title="Book5", desc="Description1")
+<Book: Book object (5)>
+>>> Author.objects.create(first_name="FName1", last_name="LName1")
+<Author: Author object (1)>
+>>> Author.objects.create(first_name="FName2", last_name="LName2")
+<Author: Author object (2)>
+>>> Author.objects.create(first_name="FName3", last_name="LName3")
+<Author: Author object (3)>
+>>> Author.objects.create(first_name="FName4", last_name="LName4")
+<Author: Author object (4)>
+>>> Author.objects.create(first_name="FName5", last_name="LName5")
+<Author: Author object (5)>
+>>> books = Book.objects.all()
+>>> authors = Author.objects.all()
+>>> books[0]
+<Book: Book object (1)>
+>>> books[0].authors.add(authors[0])
+KeyboardInterrupt
+>>> books[0].authors.add(authors[0])
+>>> books[0].authors.add(authors[1])
+>>> books[1].authors.add(authors[2])
+>>> books[1].authors.add(authors[3])
+>>> books[2].authors.add(authors[4])
+>>> books[3].authors.add(authors[1])
+>>> books[3].authors.add(authors[2])
+>>> books[3].authors.add(authors[3])
+>>> books[4].authors.add(authors[4])
+>>> books[4].authors.add(authors[2])
+>>> for b in authors[3].books.all():
+...     print(b.title)
+...
+Book2
+Book4
