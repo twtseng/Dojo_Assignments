@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Books and Authors</title>
+</head>
+
+<body>
+    {% load static %}
+    <div class="container">
+        <div id="top_row" class="jumbotron d-flex col-12">
+            
+            <form action="/post" method="POST" class="d-flex flex-column col-3 ">
+                {% csrf_token %}
+                <h1>Add a book</h1>
+                <input type="hidden" name="command" value="add_book">
+                {% if 'selected_author_id' in request.GET %}
+                <input type="hidden" name="selected_author_id" value="{{ request.GET.selected_author_id }}">
+                {% endif %}
+                <span>
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title">
+                </span>
+                <span>
+                    <label for="desc">Desc</label>
+                    <input type="text" id="desc" name="desc">
+                </span>
+                <button class="btn btn-primary">Add book</button>
+            </form>
+            
+            <div class="card">
+                <h5 class="card-header">Books</h5>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for book in books %}
+                            <tr>
+                            <th scope="row">{{ book.id }}</th>
+                            <td>{{ book.title }}</td>
+                            <td>
+                            {% if 'selected_author_id' in request.GET %}
+                            <a href="?selected_book_id={{ book.id }}&selected_author_id={{ selected_author.id }}">
+                            {% else %}
+                            <a href="?selected_book_id={{ book.id }}">
+                            {% endif %}
+                            Select</a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        </table>
+                </div>
+            </div>
+            <div class="card">
+                <h5 class="card-header">Book</h5>
+                <div class="card-body">
+                    {% if 'selected_book_id' in request.GET %}
+                    <h3>Title: {{ selected_book.title }}</h3>
+                    <h3>Desc: {{ selected_book.desc }}</h3>
+                    <h3>Authors</h3>
+                    <ul>
+                    {% for author in selected_book.authors.all %}
+                        <li>{{ author.first_name }} {{ author.last_name }}</li>
+                    {% endfor %}
+                    </ul>
+                    <form action="/post" method="POST">
+                        {% csrf_token %}
+                        {% if 'selected_author_id' in request.GET %}
+                        <input type="hidden" name="selected_author_id" value="{{ request.GET.selected_author_id }}">
+                        {% endif %}
+                        <input type="hidden" name="command" value="add_author_to_book">
+                        <input type="hidden" name="book_id" value="{{selected_book.id}}">
+                        <select name="author_id" id="author_id">
+                            {% for author in authors %}
+                            <option value="{{ author.id }}">{{ author.first_name }} {{ author.last_name }}</option>
+                            {% endfor %}                           
+                        </select>
+                        <button class="btn btn-primary">Add author</button>
+                    </form>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>  
+        
+        <div class="jumbotron d-flex col-12">
+            <form action="/post" method="POST" class="d-flex flex-column col-4">
+                {% csrf_token %}
+                {% if 'selected_book_id' in request.GET %}
+                <input type="hidden" name="selected_book_id" value="{{ request.GET.selected_book_id }}">
+                {% endif %}
+                <h1>Add an author</h1>
+                <input type="hidden" name="command" value="add_author">
+                <span>
+                    <label for="first_name">First Name</label>
+                    <input type="text" id="first_name" name="first_name">
+                </span>
+                <span>
+                    <label for="last_name">Last Name</label>
+                    <input type="text" id="last_name" name="last_name">
+                </span>
+                <button class="btn btn-primary">Add author</button>
+            </form>
+            <div class="card">
+                <h5 class="card-header">Authors</h5>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for author in authors %}
+                            <tr>
+                                <th scope="row">{{ author.id }}</th>
+                                <td>{{ author.first_name }} {{ author.last_name }}</td>
+                                <td>
+                                    {% if 'selected_book_id' in request.GET %}
+                                    <a href="?selected_book_id={{ selected_book.id }}&selected_author_id={{ author.id }}">
+                                    {% else %}
+                                    <a href="?selected_author_id={{ author.id }}">
+                                    {% endif %}
+                                    Select</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        </table>
+                </div>
+            </div>
+            <div class="card">
+                <h5 class="card-header">Author</h5>
+                <div class="card-body">
+                    {% if 'selected_author_id' in request.GET %}
+                    <h3>First Name: {{ selected_author.first_name }}</h3>
+                    <h3>Last Name: {{ selected_author.last_name }}</h3>
+                    <h3>Books</h3>
+                    <ul>
+                    {% for book in selected_author.books.all %}
+                        <li>{{ book.title }} {{ book.description }}</li>
+                    {% endfor %}
+                    </ul>
+                    <form action="/post" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="command" value="add_book_to_author">
+                        {% if 'selected_book_id' in request.GET %}
+                        <input type="hidden" name="selected_book_id" value="{{ request.GET.selected_book_id }}">
+                        {% endif %}
+                        <input type="hidden" name="author_id" value="{{selected_author.id}}">
+                        <select name="book_id" id="book_id">
+                            {% for book in books %}
+                            <option value="{{ book.id }}">{{ book.title }}</option>
+                            {% endfor %}                           
+                        </select>
+                        <button class="btn btn-primary">Add book</button>
+                    </form>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
