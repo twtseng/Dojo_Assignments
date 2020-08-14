@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}View Show{% endblock %}
+
+{% block content %}
+<div class="jumbotron p-5">
+    <h1>View Show</h1>
+    <div class="d-flex flex-column m-1">
+        {% csrf_token %}
+        <input type="hidden" name="post_action" value="{{ add_or_edit_action }}">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" value="{{ show.title }}">
+        <label for="network">Network</label>
+        <input type="text" id="network" value="{{ show.network.name }}">
+        <label for="release_date">Release Date</label>
+        <input type="date" name="release_date" id="release_date" value="{{ show.release_date }}">
+        <label for="description">Description</label>
+        <textarea name="description" id="description" cols="30" rows="10">{{ show.description }}</textarea>
+    </div>
+</div>
+{% endblock %}
