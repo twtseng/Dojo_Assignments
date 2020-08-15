@@ -27,5 +27,20 @@
         <textarea name="description" id="description" cols="30" rows="10">{% if add_or_edit_action == "Edit" %}{{ show.description }}{% endif %}</textarea>
         <button>{% if add_or_edit_action == "Edit" %}Save{% else %}Add{% endif %}</button>
     </form>
+    {% if messages %}
+    <div class="card text-center">
+        <div class="card-header bg-warning">
+          Errors
+        </div>
+        <ul class="card-body">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        <div class="card-footer text-muted">
+          Fix your errors and resubmit!
+        </div>
+      </div>
+    {% endif %}
 </div>
 {% endblock %}

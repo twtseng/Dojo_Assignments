@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
+from django.contrib import messages
 from . import models
-from datetime import datetime
+from django.utils.dateparse import parse_date
 # Create your views here.
 
 
@@ -46,7 +47,12 @@ def handle_post(request):
             description = request.POST["description"]
             network_id = int(request.POST["network_id"])
             network = models.Network.objects.get(id = network_id)
-            release_date = request.POST["release_date"]
+            release_date = parse_date(request.POST["release_date"])
+            errors = models.Show.objects.basic_validator(title, description, release_date)
+            if len(errors) > 0:
+                for key, value in errors.items():
+                    messages.error(request, value)
+                return redirect('new_show')
             models.Show.objects.create(
                 title=title,
                 description=description,
@@ -60,7 +66,12 @@ def handle_post(request):
             show.description = request.POST["description"]
             network_id = int(request.POST["network_id"])
             show.network = models.Network.objects.get(id = network_id)
-            show.release_date = request.POST["release_date"]
+            show.release_date = parse_date(request.POST["release_date"])
+            errors = models.Show.objects.basic_validator(show.title, show.description, show.release_date)
+            if len(errors) > 0:
+                for key, value in errors.items():
+                    messages.error(request, value)
+                return redirect('edit_show', show_id)
             show.save()
                   
     if "post_action" in request.GET and request.GET["post_action"] == "Delete":
