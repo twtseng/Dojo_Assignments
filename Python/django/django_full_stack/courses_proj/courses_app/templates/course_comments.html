@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Bootcamp Courses{% endblock %}
+
+{% block content %}
+<div class="jumbotron p-5">
+    <h1>Course name: {{ course.course_name }}</h1>
+    <h1>Description: {{ course.description }}</h1>
+    <form class="d-flex flex-column col-12 col-lg-8 p-0" action="/courses/add_comment_post/{{ course.id }}" method="POST">
+        {% csrf_token %}
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">Add a comment</h1>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item align-top flex-column flex-lg-row">
+                    <label class="col-12 col-lg-3 align-top p-0" for="comment_text">Comment</label><textarea class="col-12 col-lg-8 m-0" name="comment_text" id="comment_text" rows="4"></textarea>
+                </li>
+            </ul>
+            <div class="card-body">
+                <button class="btn btn-primary col-6">Add</button>
+            </div>
+        </div>
+    </form>
+    <div class="card col-12 mt-4">
+        <div class="card-body">
+            <h1 class="card-title">Comments</h1>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Comment</th>
+                    <th scope="col">Date Added</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for comment in comments %}
+                <tr>
+                    <td>{{ comment.comment_text }}</td>
+                    <td>{{ comment.date_added }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>  
+    </div>
+</div>
+{% endblock %}

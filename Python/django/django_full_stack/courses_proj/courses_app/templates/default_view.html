@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Bootcamp Courses{% endblock %}
+
+{% block content %}
+<div class="jumbotron p-5">
+    <form class="d-flex flex-column col-12 col-lg-8 p-0" action="/courses/add_course_post" method="POST">
+        {% csrf_token %}
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">Add a course</h1>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex flex-column flex-lg-row">
+                    <label class="col-12 col-lg-3 p-0" for="name">Name</label>
+                    <input class="col-12 col-lg-8" type="text" name="name" id="name" value="">
+                </li>
+                <li class="list-group-item align-top flex-column flex-lg-row">
+                    <label class="col-12 col-lg-3 align-top p-0" for="description">Description</label><textarea class="col-12 col-lg-8 m-0" name="description" id="description" rows="4"></textarea>
+                </li>
+            </ul>
+            <div class="card-body">
+                <button class="btn btn-primary col-6">Add</button>
+            </div>
+        </div>
+    </form>
+    <div class="card col-12 mt-4">
+        <div class="card-body">
+            <h1 class="card-title">Courses</h1>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Course Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Date Added</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for course in courses %}
+                <tr>
+                    <th scope="row">{{ course.course_name }}</th>
+                    <td>{{ course.description }}</td>
+                    <td>{{ course.date_added }}</td>
+                    <td><a href="/courses/destroy_course_post/{{ course.id }}">remove</a> |
+                        <a href="/courses/comments/{{ course.id }}">comments</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>  
+    </div>
+</div>
+{% endblock %}
