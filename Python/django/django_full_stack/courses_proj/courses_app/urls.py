@@ -21,8 +21,10 @@ urlpatterns = [
     path('', views.default_view, name='home'),
     path('courses/destroy/<int:course_id>', views.destroy_course_view),
     path('courses/destroy_course_post/<int:course_id>', views.destroy_course_post),
+    path('courses/destroy_course_ajax/<int:course_id>', views.destroy_course_ajax),
     path('courses/add_course_post', views.add_course_post),
     path('courses/comments/<int:course_id>', views.comments_view),
     path('courses/add_comment_post/<int:course_id>', views.add_comment_post),
+    path('courses/get_all', views.get_courses),
    re_path('^.+?', views.bad_request)
 ]

@@ -4,6 +4,17 @@
 
 {% block content %}
 <div class="jumbotron p-5">
+    <button id="ajax_test_button" class="btn btn-primary">Ajax Test</button>
+    <div class="card fixed-top" style="z-index:1;" id="confirm_dialog">
+        <div class="card-header" id="confirm_dialog_title">
+          Confirm Delete
+        </div>
+        <div class="card-body">
+          <h5 class="card-title" id="confirm_dialog_prompt">Are you sure you want to delete item 123?</h5>
+          <button class="btn btn-primary" id="confirm_dialog_yes_button">Yes</button>
+          <button class="btn btn-primary" id="confirm_dialog_no_button">No</button>
+        </div>
+    </div>
     <form class="d-flex flex-column col-12 col-lg-8 p-0" action="/courses/add_course_post" method="POST">
         {% csrf_token %}
         <div class="card">
@@ -38,20 +49,95 @@
                     <th scope="col">Actions</th>
                 </tr>
                 </thead>
-                <tbody>
-                {% for course in courses %}
+                <tbody id="course_list">
+                <!-- {% for course in courses %}
                 <tr>
                     <th scope="row">{{ course.course_name }}</th>
                     <td>{{ course.description }}</td>
                     <td>{{ course.date_added }}</td>
-                    <td><a href="/courses/destroy_course_post/{{ course.id }}">remove</a> |
+                    <td>
+                    <button 
+                        id="remove_course_button" 
+                        course_id="{{ course.id }}"
+                        course_name="{{ course.course_name }}">remove</button> |
                         <a href="/courses/comments/{{ course.id }}">comments</a>
                     </td>
                 </tr>
-                {% endfor %}
+                {% endfor %} -->
                 </tbody>
             </table>
         </div>  
     </div>
 </div>
+{% endblock %}
+{% block script %}
+<script>
+    function delete_course(course_id) {
+        $.ajax({
+            url: `/courses/destroy_course_ajax/${course_id}`,
+            type: "GET",
+            data: name,
+            cache:false,
+            dataType: "json",
+            success: function(resp){
+                load_courses();
+            }
+        });
+    }
+    $('#confirm_dialog_yes_button').click(function(){
+        // Send ajax call to delete item
+        course_id = $('#confirm_dialog').attr("course_id");
+        delete_course(course_id);
+        $('#confirm_dialog').slideUp();
+    });
+    $('#confirm_dialog_no_button').click(function(){
+        // Close dialog with no action
+        $('#confirm_dialog').slideUp();
+    });
+    function prompt_remove_course() {
+        courseId = $(this).attr('course_id');
+        course_name = $(this).attr('course_name');
+        $('#confirm_dialog').attr("course_id",courseId);
+        $('#confirm_dialog_title').text("Confirm course delete");
+        $('#confirm_dialog_prompt').text(`Are you sure you want to delete course [${course_name}], id [${courseId}]?`);
+        $('#confirm_dialog').slideDown();
+    }
+    function load_courses() {
+        $.ajax({
+            url: "/courses/get_all",
+            type: "GET",
+            data: name,
+            cache:false,
+            dataType: "json",
+            success: function(resp){
+                course_data_html = ""
+                resp.courses.forEach( (x, i) => {
+                    course_data_html += `
+                    <tr>
+                    <th scope="row">${x.course_name }</th>
+                    <td>${x.description }</td>
+                    <td>${x.date_added }</td>
+                    <td>
+                    <button 
+                        class="remove_course_button" 
+                        course_id="${x.id }"
+                        course_name="${x.course_name }">remove</button> |
+                        <a href="/courses/comments/${x.id }">comments</a>
+                    </td>
+                    </tr>
+                    `
+                });
+                $('#course_list').html(course_data_html);
+                $('.remove_course_button').click(prompt_remove_course);
+            }
+        });
+    }
+    $('#ajax_test_button').click(function() {
+        load_courses();
+    });
+    $('document').ready(function(){
+        $('#confirm_dialog').hide();
+        load_courses();
+    })
+</script>
 {% endblock %}

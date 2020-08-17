@@ -1,6 +1,8 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.urls import reverse
+from django.http import JsonResponse
 from . import models
+
 
 # Create your views here.
 def default_view(request):
@@ -41,3 +43,29 @@ def add_comment_post(request, course_id):
 
 def bad_request(request):
     return redirect(reverse('home'))
+
+def get_courses(request):
+    print(f"in get_courses")
+    course_data = []
+    for course in models.Course.objects.all():
+        course_data.append({ 
+            'id': course.id, 
+            'course_name' : course.course_name,
+            'description' : course.description,
+            'date_added' : course.date_added,
+            })
+    return JsonResponse({ 'courses' : course_data })
+
+def destroy_course_ajax(request, course_id):
+    print(f"in destroy_course_ajax, course_id[{course_id}]")
+    course = models.Course.objects.get(id=course_id)
+    course.delete()
+    course_data = []
+    for course in models.Course.objects.all():
+        course_data.append({ 
+            'id': course.id, 
+            'course_name' : course.course_name,
+            'description' : course.description,
+            'date_added' : course.date_added,
+            })
+    return JsonResponse({ 'courses' : course_data }) 
