@@ -4,24 +4,27 @@
 
 {% block content %}
 <div class="jumbotron p-5 d-flex justify-content-around">
-    <form class="d-flex flex-column col-12 col-lg-5 p-0" action="#" method="POST">
+    <div class="d-flex flex-column col-12 col-lg-5 p-0">
         {% csrf_token %}
         <div class="card">
             <div class="card-body">
                 <h1 class="card-title">Login Succeeded</h1>
             </div>
             <div class="card-body">
-                <h5>Welcome, FirstName LastName!</h5>
+                <h5>Welcome, {{ request.session.logged_in_user }}!</h5>
             </div>
             <div class="card-body">
-                <button class="btn btn-primary col-6">Logout</button>
+                <button id="logout_button" class="btn btn-primary col-6">Logout</button>
             </div>
         </div>
-    </form>
+    </div>
 </div>
 {% endblock %}
 {% block script %}
 <script>
-
+    $("#logout_button").click(function(){
+        alert("you clicked logout");
+        window.location.href="/logout_user";
+    });
 </script>
 {% endblock %}

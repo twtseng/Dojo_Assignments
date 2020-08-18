@@ -39,7 +39,7 @@
             </div>
         </div>
     </div>
-    <form class="d-flex flex-column col-12 col-lg-5 p-0">
+    <div class="d-flex flex-column col-12 col-lg-5 p-0">
         {% csrf_token %}
         <div class="card">
             <div class="card-body">
@@ -47,19 +47,21 @@
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item d-flex flex-column flex-lg-row">
-                    <label class="col-12 col-lg-3 p-0" for="email">Email</label>
-                    <input class="col-12 col-lg-8" type="email" name="email" id="email" value="">
+                    <label class="col-12 col-lg-3 p-0" for="login_email">Email</label>
+                    <input class="col-12 col-lg-8" type="email" name="email" id="login_email" value="">
                 </li>
                 <li class="list-group-item d-flex flex-column flex-lg-row">
-                    <label class="col-12 col-lg-3 p-0" for="name">Password</label>
-                    <input class="col-12 col-lg-8" type="password" name="password" id="password" value="">
+                    <label class="col-12 col-lg-3 p-0" for="login_password">Password</label>
+                    <input class="col-12 col-lg-8" type="password" name="password" id="login_password" value="">
                 </li>
             </ul>
             <div class="card-body">
-                <button class="btn btn-primary col-6">Login</button>
+                <button id="login_button" class="btn btn-primary col-6">Login</button>
+            </div>
+            <div id="login_status" class="card-body">
             </div>
         </div>
-    </form>
+    </div>
 </div>
 {% endblock %}
 {% block script %}
@@ -125,5 +127,31 @@
         }
     }
     $('#register_button').click(register)
+    function login_user() {
+        email = $("#login_email").val()
+        password = $("#login_password").val()
+        csrfToken = $('input[name ="csrfmiddlewaretoken"]')[0].value
+        $.ajax({
+            url: "/login_user",
+            type: "POST",
+            data: { 
+                "email" : email, 
+                "password" : password,
+                "csrfmiddlewaretoken" : csrfToken, 
+                },
+            cache:false,
+            dataType: "json",
+            success: function(resp){
+                $('#login_status').text(resp.message);
+                if (resp.status == "succeeded") {
+                    $('#login_status').css("color","green")
+                    window.location.replace("/success")
+                } else {
+                    $('#login_status').css("color","red")
+                }
+            }
+        });
+    }
+    $('#login_button').click(login_user)
 </script>
 {% endblock %}
