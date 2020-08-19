@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, HttpResponse, redirect, reverse
 from django.http import JsonResponse
 from . import models
 import bcrypt
@@ -33,7 +33,7 @@ def success_view(request):
     if "logged_in_user" in request.session:
         return render(request,'successful_login.html')
     else:
-        return redirect('/')
+        return redirect(reverse('login_main'))
 
 def register_user(request):
     print_sessions_debug_info(request,"register_user")
@@ -91,4 +91,4 @@ def login_user(request):
 
 def logout_user(request):
     request.session.clear()
-    return redirect('/')
+    return redirect(reverse('login_main'))
