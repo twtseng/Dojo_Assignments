@@ -71,7 +71,7 @@
             cache:false,
             dataType: "json",
             success: function(resp){
-                alert(`Add comment status:${resp.status} Message:${resp.message}`)
+                load_messages();
             }
         });
     }
