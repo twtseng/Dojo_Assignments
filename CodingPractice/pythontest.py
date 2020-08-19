@@ -124,4 +124,58 @@ def repeat_count2(arr):
             my_dict[x] += 1
     return my_dict 
 
-print(repeat_count2([1,1,1,1,2,2,2,3,3]))
+# print(repeat_count2([1,1,1,1,2,2,2,3,3]))
+
+def num_ways_to_make_change(denoms, target_sum):
+    good_combos = []
+    def recurse(denom_list):
+        for denom in denoms:
+            new_denom_list = denom_list.copy()
+            new_denom_list.append(denom)
+            list_sum = sum(new_denom_list)
+            if list_sum == target_sum:
+                print(new_denom_list)
+                good_combos.append(new_denom_list)
+            elif list_sum < target_sum:
+                recurse(new_denom_list)
+    recurse([])
+    return good_combos
+
+def make_change(denoms, target_sum):
+    combos =[]
+    def recurse(denoms, combo):
+        remaining_sum = target_sum - sum(combo)
+        denom = denoms[0]
+        max_denom_count = remaining_sum // denom
+        # Loop through the possible counts for this denomination
+        for count in range(max_denom_count + 1):
+            new_combo = combo.copy()
+            # Add the denom count times
+            new_combo += [denom]*count
+            sum_new_combo = sum(new_combo)
+            if sum_new_combo == target_sum:
+                combos.append(new_combo)
+            elif sum_new_combo < target_sum and len(denoms)>1:
+                recurse(denoms[1::], new_combo)
+    recurse(denoms, [])
+    return combos
+print(make_change([5,10,20], 20))
+
+def bin_search_2(li, num):
+    start_idx = 0
+    end_idx = len(li)-1
+    while end_idx - start_idx >= 1:
+        mid_idx = (start_idx + end_idx) // 2  
+        mid_value = li[mid_idx]
+        if mid_value == num:
+            return True
+        elif mid_value < num:
+            start_idx = mid_idx+1
+        elif mid_value > num:
+            end_idx = mid_idx-1
+    return False
+
+# print(bin_search_2([3, 4, 6, 8, 12], 7))
+
+
+

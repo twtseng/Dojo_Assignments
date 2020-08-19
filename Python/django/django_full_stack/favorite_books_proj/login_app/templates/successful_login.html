@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Login Succeeded{% endblock %}
+
+{% block content %}
+<div class="jumbotron p-5 d-flex justify-content-around">
+    <div class="d-flex flex-column col-12 col-lg-5 p-0">
+        {% csrf_token %}
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">Login Succeeded</h1>
+            </div>
+            <div class="card-body">
+                <h5>Welcome, {{ request.session.logged_in_user }}!</h5>
+            </div>
+            <div class="card-body">
+                <button id="logout_button" class="btn btn-primary col-6">Logout</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+<script>
+    $("#logout_button").click(function(){
+        window.location.href="/logout_user";
+    });
+</script>
+{% endblock %}
