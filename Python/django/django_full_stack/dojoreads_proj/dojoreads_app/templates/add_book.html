@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}Books Home{% endblock %}
+
+{% block content %}
+<div class="jumbotron p-5 d-flex flex-column flex-lg-row justify-content-between">
+    {% csrf_token %}
+    {% if "logged_in_user" in request.session %}
+    {% endif %}
+    <div class="d-flex flex-column col-12 col-lg-5 p-0">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">Recent Book Reviews</h1>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex flex-column flex-lg-row">
+                    <label class="col-12 col-lg-3 p-0" for="title">Title</label>
+                    <input class="col-12 col-lg-8" type="text" name="title" id="title" value="">
+                </li>
+                <li class="list-group-item d-flex flex-column flex-lg-row">
+                    <label class="col-12 col-lg-3 p-0" for="description">Desc</label>
+                    <input class="col-12 col-lg-8" type="text" name="description" id="description" value="">
+                </li>
+            </ul>
+            <div class="card-body">
+                <button id="add_book_button" class="btn btn-primary col-6">Add Book</button>
+            </div>
+            <div id="add_book_status" class="card-body">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+<script>
+    csrfToken = $('input[name ="csrfmiddlewaretoken"]')[0].value
+    function add_book(title, desc, uploaded_by_email) {
+        $.ajax({
+            url: "/books/add_book",
+            type: "POST",
+            data: { 
+                "title" : title,
+                "desc" : desc,
+                "uploaded_by_email" : uploaded_by_email,
+                "csrfmiddlewaretoken" : csrfToken, 
+                },
+            cache:false,
+            dataType: "json",
+            success: function(resp){
+                console.log(`${resp.status} : ${resp.message}`);
+                load_books();
+            }
+        });
+    }
+    $('#add_book_button').click(function(){
+        title = $('#title').val();
+        description = $('#description').val();
+        uploaded_by = '{{ request.session.user_email }}';
+        add_book(title, description, uploaded_by);
+    })
+    function toggle_favorite_checkbox() {
+        is_favorite = $(this).prop('checked');
+        user_email = '{{ request.session.user_email }}';
+        book_id = $(this).attr('book_id');
+        console.log(`is_favorite:${is_favorite} user_email:${user_email} book_id:${book_id}`);
+        $.ajax({
+            url: "/books/toggle_favorite",
+            type: "POST",
+            data: { 
+                "book_id" : book_id,
+                "user_email" : user_email,
+                "is_favorite" : is_favorite,
+                "csrfmiddlewaretoken" : csrfToken, 
+                },
+            cache:false,
+            dataType: "json",
+            success: function(resp){
+                console.log(`${resp.status} : ${resp.message}`);
+            }
+        });
+    }
+    function load_books() {
+        $.ajax({
+            url: "/books/get_books",
+            type: "POST",
+            data: { 
+                "csrfmiddlewaretoken" : csrfToken, 
+                },
+            cache:false,
+            dataType: "json",
+            success: function(resp){
+                books_list_html = ""
+                resp.books.forEach(x => {
+                    console.log(x);
+                    checked = ""
+                    if (x.favorite) {
+                        checked = "checked"
+                    }
+                    {% if "logged_in_user" in request.session %}
+                    books_list_html += `
+                    <li class="list-group-item d-flex flex-row justify-content-between">
+                    <a href="/books/${x.id}">${x.title}</a>
+                    <p>Uploaded by ${x.uploaded_by}</p>
+                    <span><label for="favorite_1">Favorite</label>
+                    <input class="favorite_checkbox" book_id="${x.id}" type="checkbox" ${checked}></span>
+                    </li>`;
+                    {% else %}
+                    books_list_html += `
+                    <li class="list-group-item d-flex flex-row justify-content-between">
+                    <a href="/books/${x.id}">${x.title}</a>
+                    <p>Uploaded by ${x.uploaded_by}</p>
+                    </li>`;
+                    {% endif %}
+                });
+                $('#book_list').html(books_list_html);
+                $('.favorite_checkbox').change(toggle_favorite_checkbox);
+            }
+        });
+    }
+    load_books();
+</script>
+{% endblock %}
