@@ -1,0 +1,17 @@
+.main {
+    display: inline-flex;
+    flex-grow: 100;
+    background-color: red;
+    border: solid black 2px;
+    padding: 20px;
+}
+.maininner {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+}
+.subcontentrow {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}

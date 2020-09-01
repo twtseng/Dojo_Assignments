@@ -1,0 +1,8 @@
+.navigation {
+    width: 20%;
+    height: 400px;
+    display: inline-flex;
+    background-color: blue;
+    border: solid black 2px;
+    margin-right: 10px;
+}
