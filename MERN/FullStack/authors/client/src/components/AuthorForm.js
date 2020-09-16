@@ -73,6 +73,9 @@ const AuthorForm = props => {
                     onChange={e => setAuthorName(e.target.value)}
                     helperText={errorString}
                     error={errorString !== ""}
+                    InputLabelProps={{
+                        shrink: true,
+                      }}
                 />
             </Grid>
             <Grid item xs={1}>

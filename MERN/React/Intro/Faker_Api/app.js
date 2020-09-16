@@ -35,6 +35,7 @@ const new_company = () => {
         }
     }
 }
+
 app.get('/api/companies/new', (req, res) => {
     res.send(new_company())
   })

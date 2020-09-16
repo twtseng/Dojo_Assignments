@@ -6,6 +6,7 @@ secrets/
 /hidden.txt
 # ignores a directory called "node_modules" located at the root of your working directory
 /node_modules/
+node_modules/
 # ignores any file with a .png extension
 *.png
 # ignores any file or directory that begins in "cache", such as cache-file-01, cached_assets/, etc.
@@ -152,3 +153,5 @@ dmypy.json
 cython_debug/
 
 Python/my_environments/
+
+production.config.*

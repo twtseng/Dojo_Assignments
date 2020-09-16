@@ -1,0 +1,13 @@
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\CodingPractice\obj\Debug\netcoreapp3.1\CodingPractice.csprojAssemblyReference.cache
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\CodingPractice\obj\Debug\netcoreapp3.1\CodingPractice.AssemblyInfoInputs.cache
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\CodingPractice\obj\Debug\netcoreapp3.1\CodingPractice.AssemblyInfo.cs
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\CodingPractice\obj\Debug\netcoreapp3.1\CodingPractice.csproj.CoreCompileInputs.cache
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\CodingPractice\bin\Debug\netcoreapp3.1\CodingPractice.exe
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\CodingPractice\bin\Debug\netcoreapp3.1\CodingPractice.deps.json
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\CodingPractice\bin\Debug\netcoreapp3.1\CodingPractice.runtimeconfig.json
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\CodingPractice\bin\Debug\netcoreapp3.1\CodingPractice.runtimeconfig.dev.json
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\CodingPractice\bin\Debug\netcoreapp3.1\CodingPractice.dll
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\CodingPractice\bin\Debug\netcoreapp3.1\CodingPractice.pdb
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\CodingPractice\obj\Debug\netcoreapp3.1\CodingPractice.dll
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\CodingPractice\obj\Debug\netcoreapp3.1\CodingPractice.pdb
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\CodingPractice\obj\Debug\netcoreapp3.1\CodingPractice.genruntimeconfig.cache

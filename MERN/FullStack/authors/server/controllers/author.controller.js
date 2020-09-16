@@ -28,7 +28,7 @@ module.exports.getAuthorById = (req, result) => {
 };
 
 module.exports.updateAuthor = (req, result) => {
-    Author.findOneAndUpdate({ _id: req.params.id }, req.body, { runValidators: true })
+    Author.findOneAndUpdate({ _id: req.params.id }, req.body, { runValidators: true, useFindAndModify: false })
     .then(Author => result.json(
         { status: "succeeded"
         , message: `updateAuthor succeeded, id=${Author.id}`
