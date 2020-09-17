@@ -1,13 +1,23 @@
 import React from 'react';
 import './App.css';
 import axios from 'axios';
+import io from 'socket.io-client';
 
 function App() {
-  const [api, setApi] = React.useState(null);
-  const [apiStatus, setApiStatus] = React.useState(null);
-  const [name, setName] = React.useState(null);
-  const [email, setEmail] = React.useState(null);
+  const [api, setApi] = React.useState("");
+  const [apiStatus, setApiStatus] = React.useState("");
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [socket] = React.useState(() => io(":8000"));
+  const [messages, setMessages] = React.useState([]);
   
+  React.useEffect(() => {
+    console.log("is this running?");
+    socket.on('new_message_from_server', msg => {
+      setMessages(prevMessages => { return [msg, ...prevMessages]})
+    });
+  },[]);
+
   const getAuthenticatedUser = () => {
     axios.get("http://localhost:8000/login/getauthenticateduser", { withCredentials: true })
     .then(response => {
@@ -42,6 +52,11 @@ function App() {
     })
     .catch(err => setApiStatus(JSON.stringify(err)));
   }
+  const writeSocket = () => {
+    let socketmsg = { message: name, email: email }
+    console.log("writemessage"+JSON.stringify(socketmsg))
+    socket.emit("event_from_client",socketmsg);
+  }
   return (
     <div className="App">
       <a href="http://localhost:8000/login/github_redirect">Github Login</a>
@@ -54,8 +69,11 @@ function App() {
       <label htmlFor="email">Email</label>
       <input type="text" id="email" value={email} onChange={e => setEmail(e.target.value)}></input>
       <button onClick={registerUser}>Register</button>
+      <button onClick={writeSocket}>Write Socket</button>
       <h1>Api: {api}</h1>
-      <textarea value={JSON.stringify(apiStatus)} cols={80} rows={20}></textarea>
+      <textarea value={JSON.stringify(apiStatus)} cols={80} rows={10}></textarea>
+      <h1>Messages</h1>
+      <textarea value={JSON.stringify(messages)} cols={80} rows={10}></textarea>
     </div>
   );
 }
