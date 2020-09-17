@@ -1,37 +1,48 @@
-const models = require("../models/user.model");
+const userModel = require("../models/user.model");
 
 module.exports.addUser = (req, result) => {
-    models.User.create(req.body)
+    userModel.User.create(req.body)
     .then(obj => result.json(
         { status: "succeeded"
-        , message: `addUser succeeded, id=${obj._id}`
+        , message: `addUser succeeded, displayName=${obj.getDisplayName()}`
         , result: obj}))
-    .catch(err => result.json({ status: "failed", message: err }));
+    .catch(err => result.status(400).json({ status: "failed", errors: err.errors }));
+};
+
+module.exports.findUsers = (req, result) => {
+    console.log(`findUsers: ${JSON.stringify(req.body)}`);
+    userModel.User.find(req.body)
+    .then(objs => result.json(
+        { status: "succeeded"
+        , message: `findUsers succeeded, count=${objs.length}`
+        , result: objs}))
+    .catch(err => result.status(400).json({ status: "failed", errors: err.errors }));
 };
 
 module.exports.deleteUser = (req, result) => {
-    models.User.deleteOne({ _id: req.params.id })
+    userModel.User.deleteOne({ _id: req.params.id })
     .then(obj => result.json(
         { status: "succeeded"
         , message: `deleteUser succeeded, id=${req.params.id}`
         , result: obj}))
-    .catch(err => result.json({ status: "failed", message: err }));
+    .catch(err => result.status(400).json({ status: "failed", errors: err.errors }));
 };
+
 module.exports.getAllUsers = (req, result) => {
-    models.User.find()
+    userModel.User.find()
     .then(objs => result.json(
         { status: "succeeded"
         , message: `getAllUsers succeeded, count=${objs.length}`
         , result: objs}))
-    .catch(err => result.json({ status: "failed", message: err }));
+    .catch(err => result.status(400).json({ status: "failed", errors: err.errors }));
 };
 
 module.exports.updateUser = (req, result) => {
     console.log("updateUser:", JSON.stringify(req.body));
-    models.User.findOneAndUpdate({ _id: req.params.id }, req.body, { runValidators: true, useFindAndModify: false })
+    userModel.User.findOneAndUpdate({ _id: req.params.id }, req.body, { runValidators: true, useFindAndModify: false })
     .then(obj => result.json(
         { status: "succeeded"
         , message: `updateUser succeeded, id=${obj._id}`
         , result: obj}))
-    .catch(err => result.json({ status: "failed", message: err }));
+    .catch(err => result.status(400).json({ status: "failed", errors: err.errors }));
 };

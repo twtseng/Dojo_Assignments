@@ -20,5 +20,7 @@ const UserSchema = new mongoose.Schema({
         required: [true, "oauth_id field is required"]
     }
 });
-
-module.exports.User = mongoose.model("User", UserSchema);
+UserSchema.methods.getDisplayName = function() {
+    return `${this.name} (${this.oauth_source})`;
+}
+exports.User = mongoose.model("User", UserSchema);
