@@ -45,6 +45,7 @@ function App() {
   return (
     <div className="App">
       <a href="http://localhost:8000/login/github_redirect">Github Login</a>
+      <a href="http://localhost:8000/login/google_redirect">Google Login</a>
       <button onClick={getAuthenticatedUser}>Get Authenticated User</button>
       <button onClick={logoutAuthenticatedUser}>Logout</button>
       <button onClick={getUsers}>getUsers</button>

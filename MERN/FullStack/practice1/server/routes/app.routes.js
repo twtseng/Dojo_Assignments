@@ -1,5 +1,6 @@
 const UserController = require("../controllers/user.controller")
 const LoginGithub = require("../controllers/login.github.controller")
+const LoginGoogle = require("../controllers/login.google.controller")
 const Login = require("../controllers/login.controller");
 const { authenticate } = require("../config/jwt.config");
 
@@ -10,6 +11,8 @@ module.exports = app => {
     app.patch("/api/users/:id", UserController.updateUser);
     app.get("/login/github_redirect", LoginGithub.redirect);
     app.get("/login/github_login", LoginGithub.login);
+    app.get("/login/google_redirect", LoginGoogle.redirect);
+    app.get("/login/google_login", LoginGoogle.login);
     app.get("/login/getauthenticateduser", Login.getAuthenticatedUser);
     app.post("/login/logout", Login.logout);
     app.patch("/login/registeruser", Login.registerUser);
