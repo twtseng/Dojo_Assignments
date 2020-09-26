@@ -70,6 +70,7 @@ module.exports.login = async (req, result) => {
         console.log("User: "+JSON.stringify(user));
         result
             .cookie("usertoken", userToken, { httpOnly: true})
+            .cookie("displayname", user.getDisplayName())
             .redirect(config.CLIENT_LOGIN_PAGE);
     } catch (err) {
         console.log("github_login_catch_exception: "+JSON.stringify(err));

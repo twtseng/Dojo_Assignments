@@ -53,6 +53,7 @@ module.exports.getAuthenticatedUser = (req, result) => {
 module.exports.logout = (req, result) => {
     console.log("user.logout");
     result.clearCookie("usertoken");
+    result.clearCookie("displayname");
     result.json({
         status: "succeeded",
         message: `user logged out`,

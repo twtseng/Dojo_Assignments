@@ -1,0 +1,13 @@
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\C#\Hello\bin\Debug\netcoreapp3.1\Hello.exe
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\C#\Hello\bin\Debug\netcoreapp3.1\Hello.deps.json
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\C#\Hello\bin\Debug\netcoreapp3.1\Hello.runtimeconfig.json
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\C#\Hello\bin\Debug\netcoreapp3.1\Hello.runtimeconfig.dev.json
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\C#\Hello\bin\Debug\netcoreapp3.1\Hello.dll
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\C#\Hello\bin\Debug\netcoreapp3.1\Hello.pdb
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\C#\Hello\obj\Debug\netcoreapp3.1\Hello.csprojAssemblyReference.cache
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\C#\Hello\obj\Debug\netcoreapp3.1\Hello.AssemblyInfoInputs.cache
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\C#\Hello\obj\Debug\netcoreapp3.1\Hello.AssemblyInfo.cs
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\C#\Hello\obj\Debug\netcoreapp3.1\Hello.csproj.CoreCompileInputs.cache
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\C#\Hello\obj\Debug\netcoreapp3.1\Hello.dll
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\C#\Hello\obj\Debug\netcoreapp3.1\Hello.pdb
+C:\Users\tomts\source\repos\CodingDojo\Dojo_Assignments\C#\Hello\obj\Debug\netcoreapp3.1\Hello.genruntimeconfig.cache

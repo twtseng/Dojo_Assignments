@@ -23,7 +23,6 @@ io.on("connection", socket => {
     
     socket.on("event_from_client", data => {
         console.log("Message from client"+JSON.stringify(data));
-        socket.emit("new_message_from_server",data);
         socket.broadcast.emit("new_message_from_server", data);
     })
 });
