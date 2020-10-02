@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Here are some delicious foods</h1>
+@{  
+    string [] foods = new string[]{"Pizza","Beer","Burgers","Cakes"};
+    foreach(var food in foods)
+    {
+        <h5>@food</h5>
+    }
+}
+</div>
