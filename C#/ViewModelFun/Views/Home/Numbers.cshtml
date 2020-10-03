@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Numbers";
+}
+@model int [];
+
+<div class="text-center">
+    <h1>Here are a bunch of numbers</h1>
+    @{
+        foreach(var number in Model)
+        {
+            <h3>Number: @number</h3>
+        }
+    }
+</div>

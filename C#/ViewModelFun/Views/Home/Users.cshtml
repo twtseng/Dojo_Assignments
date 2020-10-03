@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Users";
+}
+@model List<User>;
+
+<div class="text-center">
+    <h1>Here are a bunch of numbers</h1>
+    @{
+        for(int i=0; i<Model.Count; ++i)
+        {
+            <h3>User: <a href="/users/@i">@Model[i].Name</a></h3>
+        }
+    }
+</div>
