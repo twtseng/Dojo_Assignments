@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Survey";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Enter your info</h1>
+    <form action="submittedsurvey" method="POST">
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Name</label>
+        <input name="Name" type="string" class="form-control" id="exampleFormControlInput1" placeholder="<your name>">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Dojo Location</label>
+        <select name="DojoLocation" class="form-control" id="exampleFormControlSelect1">
+        <option>Seattle</option>
+        <option>San Jose</option>
+        <option>New York</option>
+        <option>Houston</option>
+        <option>Atlanta</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect2">Favorite Language</label>
+        <select name="FavoriteLanguage" multiple class="form-control" id="exampleFormControlSelect2">
+        <option>Python</option>
+        <option>Javascript</option>
+        <option>C#</option>
+        <option>Lisp</option>
+        <option>French</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Example textarea</label>
+        <textarea name="Comment" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <Button type="submit">Submit</Button>
+    </form>
+</div>
