@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Dojoachi;
+
+<div class="text-center">
+    <div class="card" style="width: 30rem;">
+        <div class="card-body">
+            <h5 class="card-title">Dojoahci game</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Fullness: @Model.Fullness Happiness: @Model.Happiness Meals: @Model.Meals Energy: @Model.Energy</h6>
+            <p class="card-text">@Model.Status</p>
+            <div class="d-flex justify-content-between">
+                <form action="feed" method="POST"><Button type="submit">Feed</Button></form>
+                <form action="play" method="POST"><Button type="submit">Play</Button></form>
+                <form action="work" method="POST"><Button type="submit">Work</Button></form>
+                <form action="sleep" method="POST"><Button type="submit">Sleep</Button></form>
+            </div>
+        </div>
+    </div>
+</div>
