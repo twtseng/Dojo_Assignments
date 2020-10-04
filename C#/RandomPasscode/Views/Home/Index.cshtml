@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Get a random passcode!</h1>
+    <h2>Passcode number: @ViewBag.CurrentPasscodeNumber</h2>
+    <h2>Passcode: @ViewBag.CurrentPasscode</h2>
+    <form action="/" method="POST">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <form action="clearsession" method="POST">
+        <button type="submit" class="btn btn-primary">Clear Session</button>
+    </form>
+</div>
