@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Survey";
+}
+@model Survey;
+
+<div class="text-center">
+    <h1 class="display-4">Your submitted data</h1>
+    <form>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Name</label>
+        <input name="Name" type="string" class="form-control" id="exampleFormControlInput1" placeholder="<your name>" value="@Model.Name" />
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Dojo Location</label>
+        <input name="DojoLocation" type="string" class="form-control" id="exampleFormControlSelect1" placeholder="<your name>" value="@Model.DojoLocation" />
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect2">Favorite Language</label>
+        <input name="FavoriteLanguage" type="string" class="form-control" id="exampleFormControlSelect2" placeholder="<your name>" value="@Model.FavoriteLanguage" />
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Comment</label>
+        <textarea name="Comment" class="form-control" id="exampleFormControlTextarea1" rows="3">@Model.Comment</textarea>
+    </div>
+    </form>
+</div>

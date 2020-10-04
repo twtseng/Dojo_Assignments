@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Survey";
+}
+@model Survey;
+
+<div class="text-center">
+    <h1 class="display-4">Enter your info</h1>
+    <form action="survey" method="POST">
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Name</label>
+        <input asp-for="Name" type="string" class="form-control" id="exampleFormControlInput1" placeholder="<your name>">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Dojo Location</label>
+        <select asp-for="DojoLocation" class="form-control" id="exampleFormControlSelect1">
+        <option>Seattle</option>
+        <option>San Jose</option>
+        <option>New York</option>
+        <option>Houston</option>
+        <option>Atlanta</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect2">Favorite Language</label>
+        <select asp-for="FavoriteLanguage" multiple class="form-control" id="exampleFormControlSelect2">
+        <option>Python</option>
+        <option>Javascript</option>
+        <option>C#</option>
+        <option>Lisp</option>
+        <option>French</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Comment</label>
+        <textarea asp-for="Comment" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <Button type="submit">Submit</Button>
+    </form>
+    <span asp-validation-for="Name" class="text-danger"></span><br>
+    <span asp-validation-for="DojoLocation" class="text-danger"></span><br>
+    <span asp-validation-for="FavoriteLanguage" class="text-danger"></span><br>
+    <span asp-validation-for="Comment" class="text-danger"></span><br>
+</div>
