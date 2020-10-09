@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model BankAccount.Data.ApplicationDbContext
+@using BankAccount.Data
+@using BankAccount.Models
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.EntityFrameworkCore
+
+<div class="text-center">
+    <h1 class="display-4">Bank Account fun</h1>
+    <form  asp-action="AddTransaction" asp-controller="Home">
+        <div class="form-group">
+            <label for="amount">Transaction amount</label>
+            <input name="Amount" type="number" class="form-control" id="amount"placeholder="Enter transaction amount here">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+    </form>
+    <h3>Accounts</h3>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Email</th>
+            <th scope="col">AccountId</th>
+            <th scope="col">IdentityUser.Id</th>
+            <th scope="col">Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ 
+                foreach(Account account in Model.Accounts.Include(acc => acc.IdentityUser).Include(acc => acc.Transactions))
+                {
+                    <tr>
+                        <th scope="row">@account.IdentityUser.Email</th>
+                        <td>@account.AccountId</td>
+                        <td>@account.IdentityUser.Id</td>
+                        <td>@account.Balance</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <h3>Transactions</h3>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">AccountId</th>
+            <th scope="col">Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ 
+                foreach(Transaction transaction in Model.Transactions)
+                {
+                    <tr>
+                        <th scope="row">@transaction.AccountId</th>
+                        <td>@transaction.Amount</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
