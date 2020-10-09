@@ -1,16 +1,25 @@
+@model List<string>;
 <div class="card">
     <div class="card-header bg-dark text-light">Level 2</div>
     <div class="card-body">
         <p>Using the SportsORM, complete all the following queries and show their results on Level2.cshtml.</p>
         <ol>
-            <li>...all teams in the Atlantic Soccer Conference</li>
-            <li>...all (current) players on the Boston Penguins (Hint: Boston is the Location, Penguins is the TeamName)</li>
-            <li>...all (current) players in the International Collegiate Baseball Conference</li>
-            <li>...all (current) players in the American Conference of Amateur Football with last name "Lopez"</li>
-            <li>...all football players</li>
-            <li>...all teams with a (current) player named "Sophia"</li>
-            <li>...all leagues with a (current) player named "Sophia"</li>
-            <li>...everyone with the last name "Flores" who DOESN'T (currently) play for the Washington Roughriders</li>
+            <li><a href="/level_2/1">...all teams in the Atlantic Soccer Conference</a></li>
+            <li><a href="/level_2/2">...all (current) players on the Boston Penguins (Hint: Boston is the Location, Penguins is the TeamName)</a></li>
+            <li><a href="/level_2/3">...all (current) players in the International Collegiate Baseball Conference</a></li>
+            <li><a href="/level_2/4">...all (current) players in the American Conference of Amateur Football with last name "Lopez"</a></li>
+            <li><a href="/level_2/5">...all football players</a></li>
+            <li><a href="/level_2/6">...all teams with a (current) player named "Sophia"</a></li>
+            <li><a href="/level_2/7">...all leagues with a (current) player named "Sophia"</a></li>
+            <li><a href="/level_2/8">...everyone with the last name "Flores" who DOESN'T (currently) play for the Washington Roughriders</a></li>
+        </ol>
+        <ol>
+            @{
+                foreach(var result in Model)
+                {
+                    <li>@result</li>
+                }
+            }
         </ol>
     </div>
 </div>

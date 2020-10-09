@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model ChefsNDishes.Data.ApplicationDbContext
+@using Microsoft.EntityFrameworkCore
+
+<div class="text-center">
+    <h5 class="display-4">Check out our roster of Chefs!</h5>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col"># of Dishes</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach(var chef in Model.Chefs.Include(chef => chef.Dishes))
+                {
+                    <tr>
+                    <th scope="row">@chef.Name</th>
+                    <td>@chef.Age</td>
+                    <td>@chef.NumDishes</td>
+                    </tr>                    
+                }
+            }
+        </tbody>
+    </table>
+    <h5 class="display-4">Check out our roster of Dishes!</h5>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Calories</th>
+            <th scope="col">Tastiness</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach(var dish in Model.Dishes)
+                {
+                    <tr>
+                    <th scope="row">@dish.Name</th>
+                    <td>@dish.Calories</td>
+                    <td>@dish.Tastiness</td>
+                    </tr>                    
+                }
+            }
+        </tbody>
+    </table>
+</div>

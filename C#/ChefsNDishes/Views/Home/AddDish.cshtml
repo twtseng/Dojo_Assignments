@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Add a dish";
+}
+@model DishFormModel
+
+<div class="text-center">
+    <h1 class="display-4">Add a chef, my friend</h1>
+    <form asp-controller="Home" asp-action="AddDishPost" method="POST">
+        <div class="form-group">
+            <label asp-for="@Model.Dish.Name">Name</label>
+            <input asp-for="@Model.Dish.Name" class="form-control"  placeholder="Enter name">
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Dish.Calories">Calories</label>
+            <input asp-for="@Model.Dish.Calories" class="form-control"  placeholder="Enter calories">
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Dish.Tastiness">Tastiness</label>
+            <input asp-for="@Model.Dish.Tastiness" class="form-control" placeholder="Enter Tastiness">
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Dish.ChefId">Chef</label>
+            <select asp-for="@Model.Dish.ChefId" class="form-control" asp-items='new SelectList(@Model.Chefs,"ChefId", "Name")' ></select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

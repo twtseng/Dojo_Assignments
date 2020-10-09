@@ -31,7 +31,8 @@ namespace SportsORM.Controllers
         [HttpGet("level_1")]
         public IActionResult Level1()
         {
-            return View();
+            List<string> results = new List<string>();
+            return View(model: results);
         }
         [HttpGet("level_1/{queryNum}")]
         public IActionResult Level1(int queryNum)
@@ -92,11 +93,39 @@ namespace SportsORM.Controllers
 
             return View("Level1", model: results);
         }
-
         [HttpGet("level_2")]
-        public IActionResult Level2()
+        public IActionResult Level2(int queryNum)
         {
-            return View();
+            List<string> results = new List<string>();
+            return View(model: results);
+        }
+        [HttpGet("level_2/{queryNum}")]
+        public IActionResult Level2Query(int queryNum)
+        {
+            List<string> results = new List<string>();
+            switch (queryNum)
+            {
+                case 1:
+                    var leagues = _context.Leagues.Where(x => x.Name.ToLower().Contains("atlantic"));
+                    foreach(var league in leagues)
+                    {
+                        results.Add(league.Name);
+                        if (league != null && league.Teams != null)
+                        {
+                            foreach(var team in league.Teams)
+                            {
+                                results.Add(league.Name+" : "+team.TeamName);
+                            }
+                        }
+                    }
+                    break;
+
+                default:
+                    results.Add("Foo");
+                    results.Add("Bar");
+                    break;
+            }
+            return View("Level2",model: results);
         }
 
         [HttpGet("level_3")]
