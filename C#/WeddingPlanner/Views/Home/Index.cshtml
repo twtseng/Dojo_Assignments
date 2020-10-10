@@ -4,10 +4,18 @@
 @model ApplicationDbContext
 @using Microsoft.EntityFrameworkCore
 
-<div class="d-flex">
+<div >
     <div class="card col-12">
         <div class="card-body">
-            <h1>Weddings I am organizing</h1>
+            @if (TempData.Keys.Contains("userIdFilter"))
+            {
+                <h1>Weddings I am organizing</h1>
+            }
+            else
+            {
+                <h1>All Weddings</h1>
+            }
+            
             <form asp-action="AddWedding" asp-controller="Home" method="GET">
                 <button type="submit" class="btn btn-primary">Add Wedding</button>
             </form>
@@ -22,7 +30,21 @@
                 </tr>
             </thead>
             <tbody>
-                @{
+                @if (TempData.Keys.Contains("userIdFilter"))
+                {
+                    foreach(var wedding in Model.Weddings.Include(p => p.WeddingGuests).Include(p => p.IdentityUser).Where(x => x.IdentityUserId == (string) TempData["userIdFilter"]))
+                    {
+                        <tr>
+                            <td><a href="/EditWedding/@wedding.WeddingId">@wedding.Description</a></td>
+                            <td>@wedding.WeddingDate</td>
+                            <td>@wedding.Address</td>
+                            <td>@wedding.GuestIds.Count</td>
+                            <td>@wedding.IdentityUser.Email</td>
+                        </tr> 
+                    }
+                }
+                else
+                {
                     foreach(var wedding in Model.Weddings.Include(p => p.WeddingGuests).Include(p => p.IdentityUser))
                     {
                         <tr>
@@ -34,6 +56,62 @@
                         </tr> 
                     }
                 }
+            </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card col-12">
+        <div class="card-body">
+            @if (TempData.Keys.Contains("userIdFilter"))
+            {
+                <h1>Weddings I am attending</h1>
+            }
+            else
+            {
+                <h1>All Wedding Attendees</h1>
+            }
+            <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">WeddingGuestId</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Wedding Date</th>
+                    <th scope="col">GuestDescription</th>
+                    <th scope="col">InvitedEmail</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (TempData.Keys.Contains("userIdFilter"))
+                {
+                    foreach(var guest in Model.WeddingGuests.Include(p => p.Wedding).Where(p => p.IdentityUserId == (string)TempData["userIdFilter"]))
+                    {
+                        <tr>
+                            <td>@guest.WeddingGuestId</td>
+                            <td>@guest.Wedding.Description</td>
+                            <td>@guest.Wedding.WeddingDate</td>
+                            <td>@guest.GuestDescription</td>
+                            <td>@guest.InvitedEmail</td>
+                            <td>@guest.Status</td>
+                            <td><a href="/UpdateGuestStatus/@guest.WeddingId/Confirmed">Confirm</a> | <a href="/UpdateGuestStatus/@guest.WeddingId/Declined">Decline</a></td>
+                        </tr> 
+                    }
+                }
+                else
+                {
+                    foreach(var guest in Model.WeddingGuests.Include(p => p.Wedding))
+                    {
+                        <tr>
+                            <td>@guest.WeddingGuestId</td>
+                            <td>@guest.Wedding.Description</td>
+                            <td>@guest.Wedding.WeddingDate</td>
+                            <td>@guest.GuestDescription</td>
+                            <td>@guest.InvitedEmail</td>
+                            <td>@guest.Status</td>
+                        </tr> 
+                    }
+                }                
             </tbody>
             </table>
         </div>

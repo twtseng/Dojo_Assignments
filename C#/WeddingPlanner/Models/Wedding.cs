@@ -33,7 +33,7 @@ namespace WeddingPlanner.Models
         public DateTime UpdatedDateUtc { get; set; } = DateTime.UtcNow;
         public Wedding()
         {
-            
+
         }
         public Wedding(WeddingForm form)
         {

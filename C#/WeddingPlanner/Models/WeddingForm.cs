@@ -48,6 +48,7 @@ namespace WeddingPlanner.Models
             this.UpdatedDateUtc = wedding.UpdatedDateUtc;
             this.Address = wedding.Address;
             this.IdentityUserId = wedding.IdentityUserId;
+            this.WeddingGuests = wedding.WeddingGuests;
         }
     }
 }

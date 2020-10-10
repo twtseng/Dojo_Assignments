@@ -5,7 +5,7 @@
 @using Microsoft.EntityFrameworkCore
 
 <div class="d-flex">
-    <div class="card col-12">
+    <div class="card col-6">
         <div class="card-title">
             <h1>Edit Wedding</h1>
         </div>
@@ -40,6 +40,47 @@
                 </div>                     
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+        </div>
+    </div>
+    <div class="card col-6">
+        <div class="card-title">
+            <h1>Guests</h1>
+        </div>
+        <div class="card-body">
+            <form asp-action="AddGuest" asp-controller="Home" method="POST">                    
+                <button type="submit" class="btn btn-primary">Add Guest</button>
+                <input name="WeddingId" hidden value="@Model.WeddingId">
+                <div class="form-group">
+                    <label for="Email">Guest Email</label>
+                    <input name="Email"  type="text" class="form-control" id="Email" placeholder="Enter the guest email">
+                </div>
+                <div class="form-group">
+                    <label for="Description">Guest Description</label>
+                    <input name="Description" type="text" class="form-control" id="Description" placeholder="Enter the guest description (ex: Joe and Sally)">
+                </div>
+            </form>
+            <table class="table table-striped">
+            <thead>
+                <tr>
+                <th scope="col">Description</th>
+                <th scope="col">InvitedEmail</th>
+                <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.WeddingGuests != null)
+                {
+                    @foreach(WeddingGuest guest in Model.WeddingGuests)
+                    {
+                        <tr>
+                            <td>@guest.GuestDescription</td>
+                            <td>@guest.InvitedEmail</td>
+                            <td>@guest.Status</td>
+                        </tr> 
+                    }
+                }
+            </tbody>
+            </table>
         </div>
     </div>
 </div>
