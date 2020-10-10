@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Wedding Planner";
+}
+@model ApplicationDbContext
+@using Microsoft.EntityFrameworkCore
+
+<div class="d-flex">
+    <div class="card col-12">
+        <div class="card-body">
+            <h1>Weddings I am organizing</h1>
+            <form asp-action="AddWedding" asp-controller="Home" method="GET">
+                <button type="submit" class="btn btn-primary">Add Wedding</button>
+            </form>
+            <table class="table table-striped">
+            <thead>
+                <tr>
+                <th scope="col">Description</th>
+                <th scope="col">Wedding Date</th>
+                <th scope="col">Address</th>
+                <th scope="col">Num Guests</th>
+                <th scope="col">Organizer</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach(var wedding in Model.Weddings.Include(p => p.WeddingGuests).Include(p => p.IdentityUser))
+                    {
+                        <tr>
+                            <td><a href="EditWedding/@wedding.WeddingId">@wedding.Description</a></td>
+                            <td>@wedding.WeddingDate</td>
+                            <td>@wedding.Address</td>
+                            <td>@wedding.GuestIds.Count</td>
+                            <td>@wedding.IdentityUser.Email</td>
+                        </tr> 
+                    }
+                }
+            </tbody>
+            </table>
+        </div>
+    </div>
+</div>

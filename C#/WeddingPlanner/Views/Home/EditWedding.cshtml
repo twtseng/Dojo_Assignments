@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Edit Wedding";
+}
+@model WeddingForm
+@using Microsoft.EntityFrameworkCore
+
+<div class="d-flex">
+    <div class="card col-12">
+        <div class="card-title">
+            <h1>Edit Wedding</h1>
+        </div>
+        <div class="card-body">
+            <form asp-action="UpdateWedding" asp-controller="Home" method="POST">
+                <input hidden name="WeddingId" value="@Model.WeddingId" />
+                <input hidden name="IdentityUserId" value="@Model.IdentityUserId" />
+                <div class="form-group">
+                    <label for="Description">Description</label>
+                    <input asp-for="@Model.Description" name="Description" type="text" class="form-control" id="Description" placeholder="Enter the names of the couple">
+                    <span asp-validation-for="@Model.Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="Wedder1">Wedder1</label>
+                    <input asp-for="@Model.Wedder1" name="Wedder1" type="text" class="form-control" id="Wedder1" placeholder="Enter Wedder1">
+                    <span asp-validation-for="@Model.Wedder1" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="Wedder1">Wedder2</label>
+                    <input asp-for="@Model.Wedder2" name="Wedder2" type="text" class="form-control" id="Wedder2" placeholder="Enter Wedder2">
+                    <span asp-validation-for="@Model.Wedder2" class="text-danger"></span>
+                </div>   
+                <div class="form-group">
+                    <label for="Address">Address</label>
+                    <input asp-for="@Model.Address" name="Address" type="text" class="form-control" id="Address" placeholder="Enter the address">
+                    <span asp-validation-for="@Model.Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="WeddingDate">WeddingDate</label>
+                    <input asp-for="@Model.WeddingDate" name="WeddingDate" class="form-control" id="WeddingDate">
+                    <span asp-validation-for="@Model.WeddingDate" class="text-danger"></span>
+                </div>                     
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
