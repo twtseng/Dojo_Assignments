@@ -1,0 +1,120 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model ApplicationDbContext
+@using Microsoft.EntityFrameworkCore
+
+<div class="d-flex">
+    <div class="card col-6">
+        <div class="card-body">
+            <h1>Products</h1>
+            <form asp-action="AddProduct" asp-controller="Home" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input name="Name" type="text" class="form-control" id="name" placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                    <label for="Description">Description</label>
+                    <input name="Description" type="text" class="form-control" id="Description" placeholder="Enter Description">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <table class="table table-striped">
+            <thead>
+                <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">CategoryCount</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach(var product in Model.Products.Include(p => p.Associations))
+                    {
+                        <tr>
+                            <td><a href="EditProduct/@product.ProductId">@product.Name</a></td>
+                            <td>@product.Description</td>
+                            <td>@product.CategoryIds.Count</td>
+                        </tr> 
+                    }
+                }
+            </tbody>
+            </table>
+        </div>
+        <div class="card-body">
+            @if (TempData.Keys.Contains("ProductToEdit"))
+            {
+                Product product = Model.Products.Include(p => p.Associations).Where(x => x.ProductId == (int)TempData["ProductToEdit"]).FirstOrDefault();
+                
+                <form asp-action="EditProductPost" asp-controller="Home" method="POST">
+                    <input hidden name="ProductId" value="@product.ProductId" />
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input asp-for="@product.Name" name="Name" class="form-control" id="name" placeholder="Enter name">
+                    </div>
+                    <div class="form-group">
+                        <label for="Description">Description</label>
+                        <input asp-for="@product.Description" name="Description" type="text" class="form-control" id="Description" placeholder="Enter Description">
+                    </div>
+                    <div class="form-group">
+                        <label for="CategoryIds">Categories</label>
+                        <select name="CategoryIds" type="text" class="form-control" id="CategoryIds" asp-items='new MultiSelectList(@Model.Categories,"CategoryId", "Name", @product.CategoryIds)' multiple></select>
+                    </div>                        
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            }
+        </div>
+    </div>
+    <div class="card col-6">
+        <div class="card-body">
+            <h1>Categories</h1>
+            <form asp-action="AddCategory" asp-controller="Home" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input name="Name" type="text" class="form-control" id="name" placeholder="Enter name">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">ProductCount</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach(var category in Model.Categories)
+                    {
+                        <tr>
+                            <td><a href="EditCategory/@category.CategoryId">@category.Name</a></td>
+                            <td>@category.ProductIds.Count</td>
+                        </tr> 
+                    }
+                }
+            </tbody>
+            </table>
+        </div>
+        <div class="card-body">               
+            @if (TempData.Keys.Contains("CategoryToEdit"))
+            {
+                {
+                    Category category = Model.Categories.Include(p => p.Associations).Where(x => x.CategoryId == (int)TempData["CategoryToEdit"]).FirstOrDefault();
+                    
+                    <form asp-action="EditCategoryPost" asp-controller="Home" method="POST">
+                        <input hidden name="CategoryId" value="@category.CategoryId" />
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input asp-for="@category.Name" name="Name" class="form-control" id="name" placeholder="Enter name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="ProductIds">Categories</label>
+                            <select name="ProductIds" type="text" class="form-control" id="ProductIds" asp-items='new MultiSelectList(@Model.Products,"ProductId", "Name", @category.ProductIds)' multiple></select>
+                        </div>                        
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                }
+            }
+        </div>
+    </div>
+</div>
