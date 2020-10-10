@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Wedding Planner";
+}
+@model Wedding
+@using Microsoft.EntityFrameworkCore
+
+<div >
+    <div class="card col-12">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Description: Wedding of @Model.Wedder1 and @Model.Wedder2</h5>
+            <p class="card-text">@Model.WeddingDate</p>
+            <p class="card-text">@Model.Wedder1 and @Model.Wedder2</p>
+            <p class="card-text">@Model.Address</p>
+        </div>
+    </div>
+    <div class="card col-12">
+        <div class="card-body">
+            <h3>Guests</h3>
+            <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">GuestDescription</th>
+                    <th scope="col">InvitedEmail</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var guest in Model.WeddingGuests)
+                {
+                    <tr>
+                        <td>@guest.GuestDescription</td>
+                        <td>@guest.InvitedEmail</td>
+                        <td>@guest.Status</td>
+                    </tr> 
+                }
+            </tbody>
+            </table>
+        </div>
+    </div>
+</div>

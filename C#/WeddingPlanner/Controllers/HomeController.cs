@@ -87,6 +87,14 @@ namespace WeddingPlanner.Controllers
             Wedding wedding = _dbContext.Weddings.Include(x => x.WeddingGuests).Where(x => x.WeddingId == weddingId).FirstOrDefault();
             return View(model: new WeddingForm(wedding));
         }
+        [HttpGet("Home/WeddingDetails/{weddingId}")]
+        [HttpGet("WeddingDetails/{weddingId}")]
+        public IActionResult WeddingDetails(int weddingId)
+        {
+            _logger.LogInformation($"=== WeddingDetails({weddingId}) ===");
+            Wedding wedding =  _dbContext.Weddings.Include(x => x.WeddingGuests).Where(x => x.WeddingId == weddingId).FirstOrDefault();
+            return View(model: wedding);
+        }
         [HttpGet("Home/UpdateGuestStatus/{weddingId}/{status}")]
         [HttpGet("UpdateGuestStatus/{weddingId}/{status}")]
         public IActionResult UpdateGuestStatus(int weddingId, WeddingGuest.StatusOptions status)

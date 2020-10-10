@@ -48,7 +48,7 @@
                     foreach(var wedding in Model.Weddings.Include(p => p.WeddingGuests).Include(p => p.IdentityUser))
                     {
                         <tr>
-                            <td><a href="EditWedding/@wedding.WeddingId">@wedding.Description</a></td>
+                            <td><a href="WeddingDetails/@wedding.WeddingId">@wedding.Description</a></td>
                             <td>@wedding.WeddingDate</td>
                             <td>@wedding.Address</td>
                             <td>@wedding.GuestIds.Count</td>
