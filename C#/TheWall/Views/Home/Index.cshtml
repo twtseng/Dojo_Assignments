@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "The Wall";
+}
+@model ApplicationDbContext
+@using Microsoft.EntityFrameworkCore
+
+<div class="text-center">
+    <div class="card mb-5">
+        <div class="card-body">
+            @if (TempData["LoggedInUserId"] == null)
+            {
+                <h5 class="card-title">Login if you wanna post messages!</h5>
+            }
+            else
+            {
+                <h5 class="card-title">Post A Message</h5>
+                <form asp-action="PostMessage" asp-controller="Home">
+                    <div class="form-group">
+                        <label for="MessageText">Message</label>
+                        <input name="MessageText" type="text" class="form-control" id="MessageText"  placeholder="Enter your message">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Message</button>
+                </form>
+            }
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Messages</h5>
+            <ul class="list-group">
+                @foreach(Message message in Model.Messages.Include(x => x.IdentityUser).Include(x => x.Comments).ThenInclude(x => x.IdentityUser))
+                {
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">@message.MessageText</h5>
+                            <p class="card-subtitle mb-2 text-muted">@message.IdentityUser.Email : @message.CreateTimeUtc.ToString("MM/dd/yy HH:mm")</p>
+                            <ul class="list-group">
+                                @if (TempData["LoggedInUserId"] != null)
+                                {
+                                    <form asp-action="PostComment" asp-controller="Home">
+                                        <input hidden name="MessageId" value="@message.MessageId" />
+                                        <div class="form-group">
+                                            <input name="CommentText" type="text" class="form-control" id="CommentText"  placeholder="Enter your comment">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Add Comment</button>
+                                    </form>
+                                }
+                                @foreach(Comment comment in message.Comments)
+                                {
+                                    <li class="list-group-item">@comment.CommentText - @comment.IdentityUser.Email : @comment.CreateTimeUtc.ToString("MM/dd/yy HH:mm")</li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                }
+            </ul>
+        </div>
+    </div>    
+</div>
