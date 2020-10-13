@@ -11,19 +11,48 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Category</th>
+                        <th scope="col">Name
+                            <a asp-controller="Home" asp-action="SortTrucks" asp-route-sort="NameAsc">asc</a> | 
+                            <a asp-controller="Home" asp-action="SortTrucks" asp-route-sort="NameDesc">desc</a>
+                        </th>
+                        <th scope="col">Category
+                            <a asp-controller="Home" asp-action="SortTrucks" asp-route-sort="CategoryAsc">asc</a> | 
+                            <a asp-controller="Home" asp-action="SortTrucks" asp-route-sort="CategoryDesc">desc</a>
+                        </th>
                         <th scope="col">Description</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach(FoodTruck truck in Model.FoodTrucks)
-                    {
-                    <tr>
-                        <td><a asp-controller="Home" asp-action="SelectTruck" asp-route-foodTruckId="@truck.FoodTruckId">@truck.Name</a></td>
-                        <td>@truck.Category</td>
-                        <td>@truck.Description</td>
-                    </tr>
+                    @{
+                        var trucks = Model.FoodTrucks.ToList();
+                        if (TempData.ContainsKey("SortTrucks"))
+                        {
+                            switch(TempData["SortTrucks"].ToString())
+                            {
+                                case "CategoryAsc":
+                                    trucks = trucks.OrderBy(x => x.Category).ToList();
+                                    break;
+                                case "CategoryDesc":
+                                    trucks = trucks.OrderByDescending(x => x.Category).ToList();
+                                    break;
+                                case "NameAsc":
+                                    trucks = trucks.OrderBy(x => x.Name).ToList();
+                                    break;
+                                case "NameDesc":
+                                    trucks = trucks.OrderByDescending(x => x.Name).ToList();
+                                    break;    
+                                default:
+                                    break;
+                            }
+                        }
+                        foreach(FoodTruck truck in trucks)
+                        {
+                        <tr>
+                            <td><a asp-controller="Home" asp-action="SelectTruck" asp-route-foodTruckId="@truck.FoodTruckId">@truck.Name</a></td>
+                            <td>@truck.Category</td>
+                            <td>@truck.Description</td>
+                        </tr>
+                        }
                     }
                 </tbody>
             </table>

@@ -34,6 +34,13 @@ namespace FoodTrucks.Controllers
             _logger.LogInformation($"=== Index ===");
             return View(_dbContext);
         }
+        [HttpGet]
+        public IActionResult SortTrucks(string sort)
+        {
+            _logger.LogInformation($"=== SortTrucks {sort} ===");
+            TempData["SortTrucks"] = sort;
+            return RedirectToAction("Index");
+        }
         [HttpPost]
         public IActionResult AddFoodTruck(FoodTruck foodTruck)
         {
