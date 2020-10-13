@@ -1,0 +1,40 @@
+﻿@model Review
+
+@if (@Model != null)
+{
+     <h5>Reviews for @Model.FoodTruck.Name</h5>
+    if (TempData["LoggedInUserId"] != null)
+    {
+    <form asp-action="AddReview" asp-controller="Home" method="POST">
+        <input asp-for="@Model.IdentityUserId" hidden value="@TempData["LoggedInUserId"]"/>
+        <input asp-for="@Model.FoodTruckId" hidden/>
+        <div class="form-group">
+            <label asp-for="@Model.ReviewText">Review Text</label>
+            <input class="form-control" asp-for="@Model.ReviewText" />
+            <span asp-validation-for="@Model.ReviewText" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+    </form>
+    }
+    else
+    {
+        <h5>Log in if you want to post a review!</h5>
+    }
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ReviewText</th>
+                <th scope="col">User</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Review review in Model.FoodTruck.Reviews)
+            {
+            <tr>
+                <td>@review.ReviewText</td>
+                <td>@review.IdentityUser.Email</td>
+            </tr>
+            }
+        </tbody>
+    </table>  
+}

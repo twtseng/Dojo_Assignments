@@ -1,0 +1,22 @@
+﻿@model FoodTruck
+
+<form asp-action="AddFoodTruck" asp-controller="Home" method="POST">
+    <h5>Add a food truck</h5>
+    <div class="form-group">
+        <label asp-for="@Model.Name">Name</label>
+        <input class="form-control" asp-for="@Model.Name" />
+        <span asp-validation-for="@Model.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Category">Category</label>
+        <input class="form-control" asp-for="@Model.Category" />
+        <span asp-validation-for="@Model.Category" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Description">Description</label>
+        <input class="form-control" asp-for="@Model.Description" />
+        <span asp-validation-for="@Model.Description" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Truck</button>
+</form>
+

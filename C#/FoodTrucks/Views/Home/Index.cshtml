@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Food Trucks";
+}
+@model ApplicationDbContext
+
+<div class="text-center">   
+    <div class="card mb-6">
+        <div class="card-body">
+            <h5 class="card-title">Food Trucks</h5>
+            <partial name="FoodTruckForm" model="@new FoodTruck()"/>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(FoodTruck truck in Model.FoodTrucks)
+                    {
+                    <tr>
+                        <td><a asp-controller="Home" asp-action="SelectTruck" asp-route-foodTruckId="@truck.FoodTruckId">@truck.Name</a></td>
+                        <td>@truck.Category</td>
+                        <td>@truck.Description</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card mb-6">
+        <div class="card-body">
+            <h5 class="card-title">Reviews</h5>
+            @if (TempData["SelectedTruckId"] != null)
+            {
+                FoodTruck foodTruck = @Model.FoodTrucks.Include(x => x.Reviews).ThenInclude(x => x.IdentityUser).FirstOrDefault(x => x.FoodTruckId == (int)TempData["SelectedTruckId"]);
+                Review review = new Review();
+                review.FoodTruckId = foodTruck.FoodTruckId;
+                review.FoodTruck = foodTruck;
+                <partial name="ReviewForm" model="review"/>
+            }
+            else
+            {
+                <h5>No truck selected</h5>
+            }
+        </div>
+    </div>
+</div>
